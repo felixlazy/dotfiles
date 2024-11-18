@@ -45,7 +45,7 @@ function npm_install($command)
     { 
       Write-Host $command
       Write-Host "$command 软件不存在,开始下载$command"
-      npm install $command 
+      npm install -g $command 
     }while(!$?)
   } else
   {
@@ -112,12 +112,13 @@ install( "vscode" )
 install( "wezterm" )
 install( "yazi" )
 install( "zoxide" )
-install("psreadline")
-install("windows-terminal")
-install("flow-launcher")
+install( "psreadline" )
+install( "windows-terminal" )
+install( "flow-launcher" )
 catppuccin
-pip_install("compiledb")
-npm_install("fanyi")
-import_module("PSCompletions")
+pip_install( "compiledb" )
+npm_install( "fanyi" )
+npm_install( "taskbook" )
+import_module( "PSCompletions" )
 PSCompletions_config
 Write-Host "安装完成"
