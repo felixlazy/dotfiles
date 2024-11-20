@@ -26,3 +26,9 @@ gui:
       - "#c53b53"
     defaultFgColor:
       - "#c8d3f5"
+os:
+  edit: "nvim {{filename}}"
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
