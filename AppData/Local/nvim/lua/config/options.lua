@@ -4,10 +4,10 @@
 
 local opt = vim.opt
 opt.timeoutlen = 1000
-opt.cursorline = false
+-- opt.cursorline = false
 opt.list = false
 -- 解决 visual 选中粘贴替换只能粘贴一次的问题
-vim.keymap.set("x", "p", "P")
+opt.set("x", "p", "P")
 local powershell_options = {
   shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
   shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
