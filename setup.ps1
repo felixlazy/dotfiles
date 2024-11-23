@@ -72,6 +72,8 @@ function PSCompletions_config
     PSCompletions add git
   }
 }
+install( "windows-terminal" )
+install( "pwsh" )
 install( "7zip" )
 install( "aria2" )
 install( "bat" )
@@ -113,8 +115,8 @@ install( "wezterm" )
 install( "yazi" )
 install( "zoxide" )
 install( "psreadline" )
-install( "windows-terminal" )
 install( "flow-launcher" )
+install( "pandoc" )
 catppuccin
 pip_install( "compiledb" )
 npm_install( "fanyi" )

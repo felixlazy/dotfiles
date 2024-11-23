@@ -13,6 +13,8 @@ map("n", "<up>", ":res -5<CR>", { noremap = true, silent = true })
 map("n", "<down>", ":res +5<CR>", { noremap = true, silent = true })
 map("n", "<left>", ":vertical resize+5<CR>", { noremap = true, silent = true })
 map("n", "<right>", ":vertical resize-5<CR>", { noremap = true, silent = true })
+-- 解决 visual 选中粘贴替换只能粘贴一次的问题
+vim.keymap.set("x", "p", "P")
 
 local function getPwd()
   local str = vim.api.nvim_buf_get_name(0)
