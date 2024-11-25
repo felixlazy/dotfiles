@@ -117,6 +117,7 @@ install( "zoxide" )
 install( "psreadline" )
 install( "flow-launcher" )
 install( "pandoc" )
+install( "glazewm" )
 catppuccin
 pip_install( "compiledb" )
 npm_install( "fanyi" )
