@@ -32,6 +32,11 @@ return {
     opts = {
 
       hint = "floating-big-letter",
+      filter_rules = {
+        bo = {
+          filetype = { "smear-cursor", "fzf-lua" },
+        },
+      },
     },
   },
 }

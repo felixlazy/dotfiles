@@ -4,7 +4,7 @@
 
 local opt = vim.opt
 opt.timeoutlen = 1000
--- opt.cursorline = false
+opt.cursorline = false
 opt.list = false
 local powershell_options = {
   shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
