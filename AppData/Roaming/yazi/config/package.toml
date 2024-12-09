@@ -1,15 +1,5 @@
-[plugin]
-deps = [
-{ use = "yazi-rs/plugins:git", rev = "4f1d0ae" },
-{ use = "Reledia/hexyl", rev = "ccc0a4a" }, 
-{ use = "h-hg/yamb", rev = "0598b8d" },
-{ use = "Reledia/glow", rev = "f52b382" },
-{ use = "Rolv-Apneseth/starship", rev = "77a65f5" }, 
-{ use = "Ape/smart-enter", rev = "7bf44b7" }, 
-{ use = "yazi-rs/plugins:jump-to-char", rev = "4f1d0ae" }, 
-{ use = "KKV9/compress", rev = "60b24af" },
-{ use = "Tyarel8/video-ffmpeg", rev = "fe26a18" }
-]
-
 [flavor]
-deps = []
+deps = [{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "8458d25" }]
+
+[plugin]
+deps = [{ use = "Reledia/glow", rev = "c2ed51e" }, { use = "Reledia/hexyl", rev = "39d3d4e" }, { use = "h-hg/yamb", rev = "0598b8d" }, { use = "yazi-rs/plugins:smart-filter", rev = "ec97f88" }, { use = "Rolv-Apneseth/starship", rev = "247f49d" }, { use = "yazi-rs/plugins:git", rev = "ec97f88" }, { use = "dedukun/relative-motions", rev = "df97039" }]
