@@ -8,10 +8,10 @@ prepend_keymap = [
   # 智能进入目录或打开文件
   { on = [
     "o",
-  ], run = "plugin --sync smart-enter", desc = "Enter the child directory, or open the file" },
+  ], run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
   { on = [
     "l",
-  ], run = "plugin --sync smart-enter", desc = "Enter the child directory, or open the file" },
+  ], run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
   { on = [
     "f",
   ], run = "plugin jump-to-char", desc = "Jump to char" },
@@ -64,6 +64,9 @@ prepend_keymap = [
   { on = [
     "<C-g>",
   ], run = "shell --block --confirm 'lazygit'", desc = "run lazygit" },
+  { on = [
+    "F",
+  ], run = "plugin smart-filter", desc = "Smart filter" },
 ]
 
 keymap = [
