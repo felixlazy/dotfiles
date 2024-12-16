@@ -19,7 +19,7 @@ function catppuccin()
   Import-Module Catppuccin
   if (!$?)
   {
-    git clone https://github.com/catppuccin/powershell.git $env:scoop//modules//catppuccin
+    git clone https://github.com/catppuccin/powershell.git $env:scoop/modules/catppuccin
   } 
 }
 function pip_install($command)
@@ -72,13 +72,20 @@ function PSCompletions_config
     PSCompletions add git
   }
 }
+scoop bucket add extras
+scoop bucket add main
+install( "aria2" )
+scoop config aria2-enabled
+scoop config aria2-split 32
+scoop config aria2-max-connection-per-server 16
+scoop config aria2-min-split-size 1M
 install( "windows-terminal" )
 install( "pwsh" )
+install( "wezterm" )
+install( "chezmoi" )
 install( "7zip" )
-install( "aria2" )
 install( "bat" )
 install( "bottom" )
-install( "chezmoi" )
 install( "delta" )
 install( "everything" )
 install( "eza" )
@@ -90,7 +97,6 @@ install( "gcc-arm-none-eabi" )
 install( "gdu" )
 install( "geekuninstaller" )
 install( "gh" )
-install( "git" )
 install( "github" )
 install( "glow" )
 install( "gsudo" )
@@ -111,17 +117,16 @@ install( "ripgrep" )
 install( "rustup" )
 install( "starship" )
 install( "vscode" )
-install( "wezterm" )
 install( "yazi" )
 install( "zoxide" )
 install( "psreadline" )
 install( "flow-launcher" )
 install( "pandoc" )
 install( "glazewm" )
+install( "rust-analyzer" )
 catppuccin
 pip_install( "compiledb" )
 npm_install( "fanyi" )
-npm_install( "taskbook" )
 import_module( "PSCompletions" )
 PSCompletions_config
 Write-Host "安装完成"
