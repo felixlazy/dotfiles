@@ -6,7 +6,7 @@ return {
     opts = {
       org_agenda_files = os.getenv("home") .. "/OneDrive/orgfiles/**/*",
       org_default_notes_file = os.getenv("home") .. "/OneDrive/orgfiles/refile.org",
-      org_todo_keywords = { "TODO(t)", "NEXT", "WAITING", "|", "cancel", "DONE" },
+      org_todo_keywords = { "TODO(t)", "NEXT", "WAITING", "BUG", "|", "CANCEL", "DONE" },
       ui = {
         folds = {
           colored = false,
@@ -25,6 +25,12 @@ return {
           description = "personal Tasks",
           template = "* TODO [#C] %?\n  DEADLINE: %t",
           target = "~/OneDrive/orgfiles" .. "/personal.org",
+        },
+      },
+      mappings = {
+        global = {
+          org_agenda = "<leader>oga",
+          org_capture = "<leader>ogc",
         },
       },
     },
