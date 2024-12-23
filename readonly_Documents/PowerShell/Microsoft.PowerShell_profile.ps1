@@ -24,6 +24,8 @@ Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 #Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
 Set-PSReadLineKeyHandler -Key "Ctrl+p" -Function HistorySearchBackward # 设置向上键为后向搜索历史记录
 Set-PSReadLineKeyHandler -Key "Ctrl+n" -Function HistorySearchForward # 设置向下键为前向搜索历史纪录
+Set-PSReadLineKeyHandler -Key "Ctrl+u" -Function BackwardDeleteInput # 删除到开头
+Set-PSReadLineKeyHandler -Key "Ctrl+l" -Function ForwardChar # 删除到开头
 Set-PSReadLineKeyHandler -Chord '"',"'" `
   -BriefDescription SmartInsertQuote `
   -LongDescription "Insert paired quotes if not already on a quote" `

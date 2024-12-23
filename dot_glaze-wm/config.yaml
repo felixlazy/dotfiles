@@ -415,9 +415,6 @@ window_rules:
     match_title: "[Pp]icture.in.[Pp]icture"
     match_class_name: "Chrome_WidgetWin_1|MozillaDialogClass"
 
-  # Some applications (eg. Steam) have borders that extend past the normal border size.
-  - command: "resize borders 0px -7px -7px -7px"
-    match_process_name: "steam"
   # Set the file explorer to float upon startup
   - command: "set floating"
     match_process_name: "explorer"
@@ -528,7 +525,7 @@ keybindings:
 
   # Launch CMD terminal (alternatively `exec wt` or `exec %ProgramFiles%/Git/git-bash.exe`
   # to start Windows Terminal and Git Bash respectively.
-  - command: "exec pwsh"
+  - command: "exec wezterm-gui.exe"
     binding: "Alt+Enter"
 
   # Focus the workspace that last had focus.
