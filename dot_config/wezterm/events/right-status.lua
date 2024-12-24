@@ -32,11 +32,11 @@ local charging_icons = {
 
 local colors = {
    date_fg = '#fab387',
-   date_bg = 'rgba(0, 0, 0, 0.4)',
+   date_bg ="#222436" ,
    battery_fg = '#f9e2af',
-   battery_bg = 'rgba(0, 0, 0, 0.4)',
+   battery_bg = "#222436",
    separator_fg = '#74c7ec',
-   separator_bg = 'rgba(0, 0, 0, 0.4)',
+   separator_bg = "#222436",
 }
 
 local __cells__ = {} -- wezterm FormatItems (ref: https://wezfurlong.org/wezterm/config/lua/wezterm/format.html)

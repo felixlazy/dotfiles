@@ -27,9 +27,6 @@ return {
 	--    },
 	-- },
 
-	-- scrollbar
-	enable_scroll_bar = true,
-
 	-- tab bar
 	enable_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = false,
@@ -40,10 +37,10 @@ return {
 
 	-- window
 	window_padding = {
-		left = 5,
-		right = 10,
-		top = 12,
-		bottom = 7,
+		left = 0,
+		right = 0,
+		top = 0,
+		bottom = 0,
 	},
 	window_close_confirmation = "NeverPrompt",
 	window_frame = {
@@ -55,4 +52,16 @@ return {
 		saturation = 0.9,
 		brightness = 0.65,
 	},
+	--config.window_decorations = "NONE"
+	window_decorations = "RESIZE",
+	-------------------- 窗口居中 --------------------
+	wezterm.on("gui-startup", function(cmd)
+		local padSize = 60
+		local screen = wezterm.gui.screens().active
+		local tab, pane, window = wezterm.mux.spawn_window(cmd or {
+			workspace = "main",
+		})
+		window:gui_window():set_position(padSize, padSize)
+		window:gui_window():set_inner_size(screen.width - (padSize * 2), screen.height - (padSize * 2) - 100)
+	end),
 }
