@@ -57,3 +57,8 @@ desc = "run lazygit"
 on = [ "<C-o>" ]
 run = "shell --block --confirm 'run lazygit '"
 desc = "run lazygit"
+
+[[manager.prepend_keymap]]
+on   = [ "c", "a" ]
+run  = "plugin compress"
+desc = "Archive selected files"
