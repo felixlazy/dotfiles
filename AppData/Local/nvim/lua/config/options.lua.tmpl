@@ -7,6 +7,7 @@ opt.timeoutlen = 1000
 opt.cursorline = false
 opt.list = false
 opt.modelines = 0
+
 local powershell_options = {
   shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
   shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
@@ -19,6 +20,7 @@ local powershell_options = {
 for option, value in pairs(powershell_options) do
   vim.opt[option] = value
 end
+
 
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
