@@ -288,4 +288,5 @@ function y
 }
 Invoke-Expression (&starship init powershell)
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
+$Env:XDG_CONFIG_HOME="{{.chezmoi.homeDir}}\.config"
 fastfetch
