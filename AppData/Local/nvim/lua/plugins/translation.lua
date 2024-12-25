@@ -60,7 +60,6 @@ return {
   },
   {
     "JuanZoran/Trans.nvim",
-    lazy = false,
     build = function()
       require("Trans").install()
     end,

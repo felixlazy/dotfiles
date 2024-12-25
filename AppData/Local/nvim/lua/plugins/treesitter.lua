@@ -9,11 +9,13 @@ return {
         "markdown",
         "markdown_inline",
         "python",
+        "powershell",
       },
     },
   },
   {
     "HiPhish/rainbow-delimiters.nvim",
+    event = "LazyFile",
     -- Bracket pair rainbow colorize
   },
 }
