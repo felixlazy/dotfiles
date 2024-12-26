@@ -50,13 +50,13 @@ run  = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
 
 [[manager.prepend_keymap]]
-on = [ "<C-o>" ]
-run = "shell --block --confirm 'explorer .'"
+on = [ "<C-g>" ]
+run = "shell --block --confirm 'run lazygit '"
 desc = "run lazygit"
 [[manager.prepend_keymap]]
 on = [ "<C-o>" ]
-run = "shell --block --confirm 'run lazygit '"
-desc = "run lazygit"
+run = "shell --block --confirm 'explorer .'"
+desc = "run explorer"
 
 [[manager.prepend_keymap]]
 on   = [ "c", "a" ]

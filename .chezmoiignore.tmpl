@@ -2,4 +2,9 @@
 Documents
 setup.ps1
 .glaze-wm
+AppData/Roaming/yazi/config/*.toml
+AppData/Roaming/yazi/config/*.lua
+{{ end }}
+{{ if ne .chezmoi.os "darwin" }}
+~/.config/yazi/
 {{ end }}
