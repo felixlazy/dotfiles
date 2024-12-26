@@ -1,4 +1,5 @@
 return {
+  {{ if eq .chezmoi.os "windows" }}
   {
     "sphamba/smear-cursor.nvim",
     opts = { -- Default  Range
@@ -9,4 +10,17 @@ return {
       cursor_color = "#c8d3f5",
     },
   },
+  {{else}}
+    {
+      "echasnovski/mini.animate",
+      optional = true,
+      opts = {
+        cursor = { enable = false },
+      },
+    },
+    {
+      "sphamba/smear-cursor.nvim",
+      enabled = false,
+    },
+  {{end}}
 }
