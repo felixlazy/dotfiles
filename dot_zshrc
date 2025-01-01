@@ -1,0 +1,45 @@
+export PATH="/opt/homebrew/bin:$PATH"
+#yazi
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+
+# git repository greeter
+last_repository=
+check_directory_for_new_repository() {
+  current_repository=$(git rev-parse --show-toplevel 2> /dev/null)
+
+  if [ "$current_repository" ] && \
+    [ "$current_repository" != "$last_repository" ]; then
+      onefetch
+  fi
+  last_repository=$current_repository
+}
+cd() {
+  builtin cd "$@"
+  check_directory_for_new_repository
+}
+check_directory_for_new_repository
+
+#zsh pugin
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export EDITOR=nvim
+
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+
+#eza
+alias ls="eza --classify --color-scale --icons=always --group-directories-first --time-style iso"
+alias ll="ls -long "
+alias lsg="ls --git-ignore --git --git-repos "
+alias llg="lsg --long "
+
+fastfetch
