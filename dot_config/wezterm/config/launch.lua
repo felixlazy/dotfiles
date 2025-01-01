@@ -15,7 +15,7 @@ if platform.is_win then
 		{ label = "lazygit", args = { "lazygit" } },
 	}
 elseif platform.is_mac then
-	options.default_prog = { "/opt/homebrew/bin/fish" }
+	options.default_prog = { "zsh" }
 	options.launch_menu = {
 		{ label = "Bash", args = { "bash" } },
 		{ label = "Fish", args = { "/opt/homebrew/bin/fish" } },
