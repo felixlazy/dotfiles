@@ -13,6 +13,7 @@ if platform.is_win then
 		{ label = "btm", args = { "btm" } },
 		{ label = "Git Bash", args = { "bash" } },
 		{ label = "lazygit", args = { "lazygit" } },
+		{ label = "nu", args = { "nu" } },
 	}
 elseif platform.is_mac then
 	options.default_prog = { "zsh" }
