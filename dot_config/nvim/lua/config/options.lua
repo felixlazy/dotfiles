@@ -7,23 +7,20 @@ opt.timeoutlen = 1000
 opt.cursorline = false
 opt.list = false
 opt.modelines = 0
-
-{{ if eq .chezmoi.os "windows" }}
-local powershell_options = {
-shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
-shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
-shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
-shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
-shellquote = "",
-shellxquote = "",
-}
-
-for option, value in pairs(powershell_options) do
-vim.opt[option] = value
+if os.getenv("SHELL") ~= "/bin/zsh" then
+  local powershell_options = {
+    shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
+    shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+    shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
+    shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+    shellquote = "",
+    shellxquote = "",
+  }
+  for option, value in pairs(powershell_options) do
+    vim.opt[option] = value
+  end
+  vim.cmd("language en_US.utf8")
 end
-vim.cmd("language en_US.utf8")
-{{ end }}
-
 
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
