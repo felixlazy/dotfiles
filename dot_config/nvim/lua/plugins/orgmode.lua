@@ -49,33 +49,4 @@ return {
       },
     },
   },
-  {
-    "chipsenkbeil/org-roam.nvim",
-    keys = {
-      { "<leader>n" },
-    },
-    opts = {
-      directory = "~/OneDrive/orgfiles/org_roam_files",
-      -- optional
-      org_files = {
-        "~/OneDrive/orgfiles/another_org_dir",
-        "~/OneDrive/orgfiles/some/folder/*.org",
-        "~/OneDrive/orgfiles/a/single/org_file.org",
-      },
-    },
-  },
-  {
-    "saghen/blink.cmp",
-    opts = {
-      sources = {
-        default = { "lsp", "path", "snippets", "buffer", "orgmode" },
-        providers = {
-          orgmode = {
-            name = "Orgmode",
-            module = "orgmode.org.autocompletion.blink",
-          },
-        },
-      },
-    },
-  },
 }

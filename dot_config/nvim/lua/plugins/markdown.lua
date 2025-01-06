@@ -11,5 +11,10 @@ return {
       icons = { "◉ ", "○ ", "✸ ", "✿ " },
       position = "inline",
     },
+    checkbox = {
+      custom = {
+        important = { raw = "[>]", rendered = "", highlight = "DiagnosticWarn" },
+      },
+    },
   },
 }
