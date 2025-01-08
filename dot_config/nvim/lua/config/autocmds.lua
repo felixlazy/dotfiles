@@ -13,3 +13,8 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.spell = false
   end,
 })
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  callback = function(ev)
+    vim.diagnostic.config({ virtual_text = false })
+  end,
+})
