@@ -263,12 +263,18 @@ Set-PSReadlineKeyHandler -Chord "Ctrl+o" -ScriptBlock {
   [Microsoft.PowerShell.PSConsoleReadLine]::Insert('explorer .')
   [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
+function EP
+{
+  explorer.exe . 
+}
+set-alias ex EP 
 
 Set-PSReadlineKeyHandler -Chord "Ctrl+g" -ScriptBlock {
   [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
   [Microsoft.PowerShell.PSConsoleReadLine]::Insert('lazygit')
   [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
+set-alias lg lazygit
 Set-PSReadlineKeyHandler -Chord "Ctrl+b" -ScriptBlock {
   [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
   [Microsoft.PowerShell.PSConsoleReadLine]::Insert('cd -')
