@@ -4,7 +4,7 @@
 
 local opt = vim.opt
 opt.timeoutlen = 1000
-opt.cursorline = false
+opt.cursorline = true
 opt.list = false
 opt.modelines = 0
 if os.getenv("SHELL") ~= "/bin/zsh" then
