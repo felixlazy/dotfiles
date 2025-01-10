@@ -8,7 +8,7 @@ return {
     },
     heading = {
       sign = true,
-      icons = { "◉ ", "○ ", "✸ ", "✿ " },
+      icons = { "󰎥  ", "󰎨  ", "󰎫  ", "󰎲  ", "󰎯  ", "󰎴  " },
       position = "inline",
     },
     checkbox = {
