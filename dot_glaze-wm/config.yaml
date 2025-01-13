@@ -376,19 +376,19 @@ bars:
 workspaces: #possible icons - " "
   # not monitor 1 = horizontal monitor and not the vertical monitor despite the settings identifying otherwise
   - name: "1"
-    display_name: "󰲡 neovide"
+    display_name: "󰎥  neovide"
     bind_to_monitor: 1
   - name: "2"
-    display_name: "󰲣 wezterm"
+    display_name: "󰎨  wezterm"
     bind_to_monitor: 2
   - name: "3"
-    display_name: "󰲥 edge"
+    display_name: "󰎫  edge"
   - name: "4"
-    display_name: "󰲧 orcad"
+    display_name: "󰎲  orcad"
   - name: "5"
-    display_name: "󰲩 allegro"
+    display_name: "󰎯  allegro"
   - name: "6"
-    display_name: "󰲫 mdk"
+    display_name: "󰎴  mdk"
     bind_to_monitor: 1
   - name: "7"
     display_name: "7"
