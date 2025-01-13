@@ -39,14 +39,21 @@ return {
       },
     },
   },
+  -- {
+  --   "lukas-reineke/headlines.nvim",
+  --   dependencies = "nvim-treesitter/nvim-treesitter",
+  --   ft = { "org" },
+  --   opts = {
+  --     markdown = {
+  --       headline_highlights = false,
+  --     },
+  --   },
+  -- },
   {
-    "lukas-reineke/headlines.nvim",
-    dependencies = "nvim-treesitter/nvim-treesitter",
+    "akinsho/org-bullets.nvim",
     ft = { "org" },
     opts = {
-      markdown = {
-        headline_highlights = false,
-      },
+      symbols = { headlines = { "󰎥 ", "󰎨 ", "󰎫 ", "󰎲 " } },
     },
   },
 }
