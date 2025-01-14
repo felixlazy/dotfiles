@@ -285,6 +285,7 @@ Invoke-Expression (& { (zoxide init powershell | Out-String) })
 $Env:XDG_CONFIG_HOME=$Env:home+"\.config"
 $Env:path+=$Env:home+"\OneDrive\.config\bin"
 $Env:YAZI_CONFIG_HOME=$Env:home+"\.config\yazi"
+$Env:scoop=$Env:home+"\scoop"
 #设置代理
 $Env:http_proxy="http://127.0.0.1:7890"
 $Env:https_proxy="http://127.0.0.1:7890"

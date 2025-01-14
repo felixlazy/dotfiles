@@ -1,26 +1,28 @@
 Write-Host "开始安装需要的软件"
-function install($command)
+function install_scoop
 {
-  if ( !(Get-Command -Name $command -ErrorAction SilentlyContinue) )
+  if (-not (Get-Command scoop -ErrorAction SilentlyContinue))
   {
-    do
-    { 
-      Write-Host $command
-      Write-Host "$command 软件不存在,开始下载$command"
-      scoop install $command 
-    }while(!$?)
+    Write-Host "scoop 未安装，开始安装 scoop"
+    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+    Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+    scoop bucket add extras
+    scoop bucket add main
   } else
   {
-    Write-Host "$command 软件安装完成"
+    Write-Host "scoop 已安装"
   }
 }
 function catppuccin()
 { 
-  Import-Module Catppuccin
-  if (!$?)
+  if (-not (Get-Module -ListAvailable -Name Catppuccin)) 
   {
     git clone https://github.com/catppuccin/powershell.git $env:scoop/modules/catppuccin
-  } 
+    Import-Module $env:scoop/modules/catppuccin/Catppuccin.psm1
+  } else 
+  {
+    Import-Module Catppuccin
+  }
 }
 function pip_install($command)
 {
@@ -62,68 +64,97 @@ function import_module($command)
 }
 function PSCompletions_config
 {
-  $module = Get-Module -Name  PSCompletions -ListAvailable
+  $module = Get-Module -Name PSCompletions -ListAvailable
   if ($module)
   {
-    PSCompletions add npm
-    PSCompletions add pip
-    PSCompletions add cargo
-    PSCompletions add scoop
-    PSCompletions add git
+    $completions = @("npm", "pip", "cargo", "scoop", "git")
+    foreach ($completion in $completions)
+    {
+      if (-not (PSCompletions list | Select-String -Pattern $completion))
+      {
+        PSCompletions add $completion
+        Write-Host "$completion 补全源已添加"
+      } else
+      {
+        Write-Host "$completion 补全源已存在"
+      }
+    }
+  }
+}
+function install_scoop_packages($packages)
+{
+  foreach ($package in $packages)
+  {
+    $installedPackage = scoop list | Select-String -Pattern $package
+    if (-not $installedPackage -or $installedPackage -match "failed")
+    {
+      Write-Host "$package 下载失败或未安装，重新下载..."
+      scoop install $package
+      if ($LASTEXITCODE -ne 0)
+      {
+        Write-Host "$package 下载失败，重新下载..."
+        scoop install $package
+      } else
+      {
+        Write-Host "$package 已安装"
+      }
+    } else
+    {
+      Write-Host "$package 已存在"
+    }
   }
 }
 scoop bucket add extras
 scoop bucket add main
-install( "aria2" )
-scoop config aria2-enabled
-scoop config aria2-split 32
-scoop config aria2-max-connection-per-server 16
-scoop config aria2-min-split-size 1M
-install( "windows-terminal" )
-install( "pwsh" )
-install( "wezterm" )
-install( "chezmoi" )
-install( "7zip" )
-install( "bat" )
-install( "bottom" )
-install( "delta" )
-install( "everything" )
-install( "eza" )
-install( "fastfetch" )
-install( "fd" )
-install( "ffmpeg" )
-install( "fzf" )
-install( "gcc-arm-none-eabi" )
-install( "gdu" )
-install( "geekuninstaller" )
-install( "gh" )
-install( "github" )
-install( "glow" )
-install( "gsudo" )
-install( "gzip" )
-install( "hexyl" )
-install( "lazygit" )
-install( "lua" )
-install( "mingw" )
-install( "neovide" )
-install( "neovim" )
-install( "nodejs" )
-install( "poppler" )
-install( "posh-git" )
-install( "potplayer" )
-install( "psfzf" )
-install( "python" )
-install( "ripgrep" )
-install( "rustup" )
-install( "starship" )
-install( "vscode" )
-install( "yazi" )
-install( "zoxide" )
-install( "psreadline" )
-install( "flow-launcher" )
-install( "pandoc" )
-install( "glazewm" )
-install( "rust-analyzer" )
+install_scoop_packages("aria2")
+$packages=@( "windows-terminal",
+  "pwsh",
+  "wezterm",
+  "chezmoi",
+  "7zip",
+  "bat",
+  "bottom",
+  "delta",
+  "everything",
+  "eza",
+  "fastfetch",
+  "fd",
+  "ffmpeg",
+  "fzf",
+  "gcc-arm-none-eabi",
+  "gdu",
+  "geekuninstaller",
+  "gh",
+  "github",
+  "glow",
+  "gsudo",
+  "gzip",
+  "hexyl",
+  "lazygit",
+  "lua",
+  "mingw",
+  "neovide",
+  "neovim",
+  "nodejs",
+  "poppler",
+  "posh-git",
+  "potplayer",
+  "psfzf",
+  "python",
+  "ripgrep",
+  "rustup",
+  "starship",
+  "vscode",
+  "yazi",
+  "zoxide",
+  "psreadline",
+  "flow-launcher",
+  "pandoc",
+  "rust-analyzer" ,
+  "gotop"
+  
+)
+install_scoop_packages $packages
 catppuccin
 pip_install( "compiledb" )
 npm_install( "fanyi" )
