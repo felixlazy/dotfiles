@@ -28,7 +28,7 @@ if vim.g.neovide then
   vim.g.neovide_cursor_vfx_mode = "ripple"
   -- vim.g.neovide_transparency = 0.5
   -- vim.cmd([[colorscheme onedark]])
-  -- vim.g.neovide_fullscreen = true
+  vim.g.neovide_fullscreen = true
   -- vim.g.neovide_cursor_animate_command_line = true
   vim.g.neovide_cursor_antialiasing = false
   vim.g.neovide_hide_mouse_when_typing = true

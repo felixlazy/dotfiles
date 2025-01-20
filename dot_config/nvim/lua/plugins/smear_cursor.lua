@@ -19,12 +19,4 @@ return {
       cursor_color = "#c8d3f5",
     },
   },
-  {
-    "echasnovski/mini.animate",
-    optional = true,
-    cond = vim.g.neovide == nil,
-    opts = {
-      cursor = { enable = false },
-    },
-  },
 }
