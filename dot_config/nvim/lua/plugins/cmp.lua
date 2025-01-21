@@ -5,7 +5,7 @@ return {
     opts = {
       keymap = {
         cmdline = {
-          preset = "enter",
+          preset = "super-tab",
           ["<CR>"] = {},
           ["<C-y>"] = { "select_and_accept" },
         },
@@ -42,25 +42,6 @@ return {
           end
           return {}
         end,
-      },
-      completion = {
-        menu = {
-          draw = {
-            columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
-            treesitter = { "lsp" },
-          },
-          scrollbar = false,
-        },
-        documentation = {
-          auto_show = true,
-          auto_show_delay_ms = 500,
-        },
-      },
-      signature = {
-        enabled = true,
-      },
-      appearance = {
-        nerd_font_variant = "normal",
       },
     },
   },
