@@ -52,22 +52,19 @@ return {
         "<cmd>ObsidianBacklinks<CR>",
         desc = "ObsidianBacklinks",
       },
+      {
+        "<leader>obo",
+        "<cmd>ObsidianOpen<CR>",
+        desc = "ObsidianOpen",
+      },
     },
 
     opts = {
       -- Define workspaces for Obsidian
       workspaces = {
         {
-          name = "rust",
-          path = "~/OneDrive/obsidian/rust",
-        },
-        {
-          name = "nvim",
-          path = "~/OneDrive/obsidian/nvim",
-        },
-        {
-          name = "work",
-          path = "~/OneDrive/obsidian/work",
+          name = "obsidian",
+          path = "~/OneDrive/obsidian",
         },
       },
 
@@ -122,7 +119,7 @@ return {
             suffix = suffix .. string.char(math.random(65, 90))
           end
         end
-        return tostring(os.time()) .. "-" .. suffix
+        return suffix
       end,
       follow_url_func = function(url)
         print(url)

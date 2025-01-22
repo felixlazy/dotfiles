@@ -14,6 +14,7 @@ if platform.is_win then
 		{ label = "Git Bash", args = { "bash" } },
 		{ label = "lazygit", args = { "lazygit" } },
 		{ label = "nu", args = { "nu" } },
+		{ label = "felix", args = { "ssh", "felix@172.16.30.72" } },
 	}
 elseif platform.is_mac then
 	options.default_prog = { "zsh" }
