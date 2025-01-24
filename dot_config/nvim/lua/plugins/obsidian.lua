@@ -5,6 +5,7 @@ return {
     ft = "markdown",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      "ibhagwan/fzf-lua",
     },
     keys = {
       {

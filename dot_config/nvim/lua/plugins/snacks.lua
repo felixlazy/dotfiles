@@ -1,6 +1,22 @@
 return {
   "folke/snacks.nvim",
   opts = {
+    dashboard = {
+      preset = {
+        header = [[
+
+
+███████╗███████╗██╗     ██╗██╗  ██╗██╗   ██╗██╗███╗   ███╗
+██╔════╝██╔════╝██║     ██║╚██╗██╔╝██║   ██║██║████╗ ████║
+█████╗  █████╗  ██║     ██║ ╚███╔╝ ██║   ██║██║██╔████╔██║
+██╔══╝  ██╔══╝  ██║     ██║ ██╔██╗ ╚██╗ ██╔╝██║██║╚██╔╝██║
+██║     ███████╗███████╗██║██╔╝ ██╗ ╚████╔╝ ██║██║ ╚═╝ ██║
+╚═╝     ╚══════╝╚══════╝╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
+                                                          
+
+]],
+      },
+    },
     indent = {
       enabled = true, -- enable indent guides
       chunk = {
@@ -19,6 +35,26 @@ return {
           horizontal = "─",
           vertical = "│",
           arrow = ">",
+        },
+      },
+    },
+    picker = {
+      win = {
+        input = {
+          keys = {
+            ["<a-w>"] = { "toggle_preview", mode = { "i", "n" } },
+            ["<a-p>"] = { "cycle_win", mode = { "i", "n" } },
+          },
+        },
+        preview = {
+          keys = {
+            ["<a-p>"] = "cycle_win",
+          },
+        },
+      },
+      previewers = {
+        git = {
+          native = true, -- use native (terminal) or Neovim for previewing git diffs and commits
         },
       },
     },
