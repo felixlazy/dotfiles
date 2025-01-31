@@ -11,7 +11,17 @@ return {
         },
       },
       sources = {
-        default = { "lsp", "path", "snippets", "buffer", "orgmode", "obsidian", "obsidian_new", "obsidian_tags" },
+        default = {
+          "lsp",
+          "path",
+          "snippets",
+          "buffer",
+          "orgmode",
+          "obsidian",
+          "obsidian_new",
+          "obsidian_tags",
+          "markdown",
+        },
         providers = {
           orgmode = {
             name = "Orgmode",
@@ -28,6 +38,11 @@ return {
           obsidian_tags = {
             name = "obsidian_tags",
             module = "blink.compat.source",
+          },
+          markdown = {
+            name = "RenderMarkdown",
+            module = "render-markdown.integ.blink",
+            fallbacks = { "lsp" },
           },
         },
         cmdline = function()
