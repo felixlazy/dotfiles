@@ -13,9 +13,6 @@ map("n", "<up>", ":res -5<CR>", { noremap = true, silent = true })
 map("n", "<down>", ":res +5<CR>", { noremap = true, silent = true })
 map("n", "<left>", ":vertical resize+5<CR>", { noremap = true, silent = true })
 map("n", "<right>", ":vertical resize-5<CR>", { noremap = true, silent = true })
-map({ "s", "i" }, "<Tab>", function()
-  return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>" or "<Tab>"
-end, { expr = true, desc = "Jump Next" })
 -- 解决 visual 选中粘贴替换只能粘贴一次的问题
 vim.keymap.set("x", "p", "P")
 

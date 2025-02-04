@@ -1,7 +1,10 @@
 return {
   {
     "saghen/blink.cmp",
-    dependencies = { "saghen/blink.compat" },
+    dependencies = {
+      "saghen/blink.compat",
+      "xzbdmw/colorful-menu.nvim",
+    },
     opts = {
       keymap = {
         cmdline = {
@@ -57,6 +60,38 @@ return {
           end
           return {}
         end,
+      },
+      completion = {
+        menu = {
+          border = "single",
+          draw = {
+            treesitter = { "lsp" },
+            columns = { { "kind_icon" }, { "label", gap = 1 } },
+            components = {
+              label = {
+                text = function(ctx)
+                  return require("colorful-menu").blink_components_text(ctx)
+                end,
+                highlight = function(ctx)
+                  return require("colorful-menu").blink_components_highlight(ctx)
+                end,
+              },
+            },
+          },
+          scrollbar = false,
+        },
+        documentation = {
+          window = { border = "single", scrollbar = false },
+          auto_show = true,
+          auto_show_delay_ms = 500,
+        },
+      },
+      signature = {
+        enabled = true,
+        window = { border = "single" },
+      },
+      appearance = {
+        nerd_font_variant = "normal",
       },
     },
   },
