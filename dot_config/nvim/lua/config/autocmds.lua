@@ -18,3 +18,18 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     vim.diagnostic.config({ virtual_text = false })
   end,
 })
+-- 自动化命令：在进入可视模式时关闭相对行号
+vim.api.nvim_create_autocmd("ModeChanged", {
+  pattern = "*:[vV\x16]*", -- 进入可视模式
+  callback = function()
+    vim.api.nvim_command(" lua Snacks.indent.disable()")
+  end,
+})
+
+-- 自动化命令：在离开可视模式时启用相对行号
+vim.api.nvim_create_autocmd("ModeChanged", {
+  pattern = "[vV\x16]*:*", -- 离开可视模式
+  callback = function()
+    vim.api.nvim_command(" lua Snacks.indent.enable()")
+  end,
+})
