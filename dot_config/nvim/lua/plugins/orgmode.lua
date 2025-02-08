@@ -3,6 +3,9 @@ return {
     "nvim-orgmode/orgmode",
     event = "VeryLazy",
     ft = { "org" },
+    dependencies = {
+      "danilshvalov/org-modern.nvim",
+    },
     opts = {
       org_agenda_files = {
         "~/OneDrive/orgfiles/work/*.org",
@@ -14,6 +17,24 @@ return {
       ui = {
         folds = {
           colored = false,
+        },
+        menu = {
+          handler = function(data)
+            require("org-modern.menu")
+              :new({
+                window = {
+                  margin = { 1, 30, 25, 30 },
+                  padding = { 0, 1, 0, 1 },
+                  title_pos = "center",
+                  border = "double",
+                  zindex = 1000,
+                },
+                icons = {
+                  separator = "➜",
+                },
+              })
+              :open(data)
+          end,
         },
       },
       org_startup_folded = "inherit",
@@ -39,6 +60,13 @@ return {
       },
     },
   },
+  {
+    "akinsho/org-bullets.nvim",
+    ft = { "org" },
+    opts = {
+      symbols = { headlines = { "󰎥 ", "󰎨 ", "󰎫 ", "󰎲 " } },
+    },
+  },
   -- {
   --   "lukas-reineke/headlines.nvim",
   --   dependencies = "nvim-treesitter/nvim-treesitter",
@@ -49,11 +77,4 @@ return {
   --     },
   --   },
   -- },
-  {
-    "akinsho/org-bullets.nvim",
-    ft = { "org" },
-    opts = {
-      symbols = { headlines = { "󰎥 ", "󰎨 ", "󰎫 ", "󰎲 " } },
-    },
-  },
 }
