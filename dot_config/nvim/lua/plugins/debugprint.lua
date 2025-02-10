@@ -5,6 +5,7 @@ return {
   },
   key = { "g?" },
   lazy = true,
+  event = "LazyFile",
   version = "*", -- Remove if you DON'T want to use the stable version
   opts = {},
 }
