@@ -218,6 +218,16 @@ Set-PsFzfOption -PSReadLineChordProvider ‘Ctrl+f’ -PSReadLineChordReverseHis
 # fzf
 $Env:FZF_DEFAULT_COMMAND = 'fd' 
 $Env:FZF_DEFAULT_OPTS = '--height 90% 
+--style full 
+--tmux 80% 
+--border --padding 1,2 
+--border-label " FZF " --input-label " Input " --header-label " File Type " 
+--bind "ctrl-r:change-list-label( Reloading the list )+reload(sleep 2; git ls-files)" 
+--color "border:#aaaaaa,label:#cccccc" 
+--color "preview-border:#9999cc,preview-label:#ccccff" 
+--color "list-border:#669966,list-label:#99cc99" 
+--color "input-border:#996666,input-label:#ffcccc" 
+--color "header-border:#6699cc,header-label:#99ccff" 
 --layout=reverse 
 --bind=alt-j:down,alt-k:up,alt-i:toggle+down 
 --preview "bat --color=always --style=numbers --line-range=:500 {}" 
@@ -287,7 +297,7 @@ $Env:XDG_DATA_HOME  =$Env:home+"\.local\share"
 $Env:XDG_STATE_HOME =$Env:home+"\.local\share"
 $Env:NVIM_LOG_FILE  =$Env:home+"\.local\share"
 $Env:_ZO_DATA_DIR   =$Env:home+"\.local\share\zoxide"
-$Env:path+=$Env:home+"\OneDrive\.config\bin"
+$Env:path += ";$Env:home/.config/fzf"
 $Env:YAZI_CONFIG_HOME=$Env:home+"\.config\yazi"
 $Env:scoop=$Env:home+"\scoop"
 $Env:EZA_CONFIG_DIR = $Env:XDG_CONFIG_HOME+"\eza"
