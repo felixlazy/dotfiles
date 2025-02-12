@@ -283,6 +283,10 @@ function y
 Invoke-Expression (&starship init powershell)
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 $Env:XDG_CONFIG_HOME=$Env:home+"\.config"
+$Env:XDG_DATA_HOME  =$Env:home+"\.local\share"
+$Env:XDG_STATE_HOME =$Env:home+"\.local\share"
+$Env:NVIM_LOG_FILE  =$Env:home+"\.local\share"
+$Env:_ZO_DATA_DIR   =$Env:home+"\.local\share\zoxide"
 $Env:path+=$Env:home+"\OneDrive\.config\bin"
 $Env:YAZI_CONFIG_HOME=$Env:home+"\.config\yazi"
 $Env:scoop=$Env:home+"\scoop"
