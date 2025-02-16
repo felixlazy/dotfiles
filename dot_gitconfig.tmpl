@@ -4,12 +4,12 @@
 	name = {{ .name }}
 	email = {{ .email }}
 [core]
-  pager = {{ .chezmoi.config.diff.command }}
+  pager = delta
 
 [interactive]
-  diffFilter = {{ .chezmoi.config.diff.command }} --color-only
+  diffFilter = delta --color-only
 
-[{{ .chezmoi.config.diff.command }}]
+[delta]
   navigate = true  # use n and N to move between diff sections
   dark = true      # or light = true, or omit for {{ .chezmoi.config.color }}-detection
 
