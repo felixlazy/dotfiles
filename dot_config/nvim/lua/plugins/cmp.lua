@@ -6,49 +6,14 @@ return {
       "xzbdmw/colorful-menu.nvim",
     },
     opts = {
-      keymap = {
-        cmdline = {
+      cmdline = {
+        enabled = true,
+        keymap = {
           preset = "super-tab",
           ["<CR>"] = {},
           ["<C-y>"] = { "select_and_accept" },
         },
-      },
-      sources = {
-        default = {
-          "lsp",
-          "path",
-          "snippets",
-          "buffer",
-          "orgmode",
-          "obsidian",
-          "obsidian_new",
-          "obsidian_tags",
-          "markdown",
-        },
-        providers = {
-          orgmode = {
-            name = "Orgmode",
-            module = "orgmode.org.autocompletion.blink",
-          },
-          obsidian = {
-            name = "obsidian",
-            module = "blink.compat.source",
-          },
-          obsidian_new = {
-            name = "obsidian_new",
-            module = "blink.compat.source",
-          },
-          obsidian_tags = {
-            name = "obsidian_tags",
-            module = "blink.compat.source",
-          },
-          markdown = {
-            name = "RenderMarkdown",
-            module = "render-markdown.integ.blink",
-            fallbacks = { "lsp" },
-          },
-        },
-        cmdline = function()
+        sources = function()
           local type = vim.fn.getcmdtype()
           -- Search forward and backward
           if type == "/" or type == "?" then
@@ -60,6 +25,18 @@ return {
           end
           return {}
         end,
+        completion = {
+          trigger = {
+            show_on_blocked_trigger_characters = {},
+            show_on_x_blocked_trigger_characters = nil, -- Inherits from top level `completion.trigger.show_on_blocked_trigger_characters` config when not set
+          },
+          menu = {
+            auto_show = nil, -- Inherits from top level `completion.menu.auto_show` config when not set
+            draw = {
+              columns = { { "label", "label_description", gap = 1 } },
+            },
+          },
+        },
       },
       completion = {
         menu = {
@@ -85,6 +62,7 @@ return {
           auto_show = true,
           auto_show_delay_ms = 500,
         },
+        -- trigger = { show_on_insert_on_trigger_character = true },
       },
       signature = {
         enabled = true,
