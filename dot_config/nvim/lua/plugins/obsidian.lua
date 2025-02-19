@@ -1,3 +1,10 @@
+-- local blink = require("blink.cmp")
+-- blink.add_filetype_source("markdown", "obsidian")
+-- blink.add_filetype_source("markdown", "obsidian_new")
+-- blink.add_filetype_source("markdown", "obsidian_tags")
+-- blink.add_provider("obsidian", { name = "obsidian", module = "blink.compat.source" })
+-- blink.add_provider("obsidian_new", { name = "obsidian_new", module = "blink.compat.source" })
+-- blink.add_provider("obsidian_tags", { name = "obsidian_tags", module = "blink.compat.source" })
 return {
   {
     "epwalsh/obsidian.nvim",
@@ -11,6 +18,32 @@ return {
           require("render-markdown.core.ui")
         end,
       },
+    },
+    cmd = {
+      "ObsidianBacklinks",
+      "ObsidianCheck",
+      "ObsidianDailies",
+      "ObsidianDebug",
+      "ObsidianExtractNote",
+      "ObsidianFollowLink",
+      "ObsidianLink",
+      "ObsidianLinkNew",
+      "ObsidianLinks",
+      "ObsidianNew",
+      "ObsidianNewFromTemplate",
+      "ObsidianOpen",
+      "ObsidianPasteImg",
+      "ObsidianQuickSwitch",
+      "ObsidianRename",
+      "ObsidianSearch",
+      "ObsidianTOC",
+      "ObsidianTags",
+      "ObsidianTemplate",
+      "ObsidianToday",
+      "ObsidianToggleCheckbox",
+      "ObsidianTomorrow",
+      "ObsidianWorkspace",
+      "ObsidianYesterday",
     },
     keys = {
       {
@@ -85,11 +118,25 @@ return {
         img_folder = "files", -- Folder for image attachments
       },
       -- Settings for daily notes
+      templates = {
+        folder = "templates",
+        date_format = "%Y-%m-%d-%a",
+        time_format = "%H:%M",
+      },
       daily_notes = {
-        template = "note", -- Template for daily notes
+        -- Optional, if you keep daily notes in a separate directory.
+        folder = "notes/dailies",
+        -- Optional, if you want to change the date format for the ID of daily notes.
+        date_format = "%Y-%m-%d",
+        -- Optional, if you want to change the date format of the default alias of daily notes.
+        alias_format = "%Y-%m-%d",
+        -- Optional, default tags to add to each new daily note created.
+        default_tags = { "daily-notes" },
+        -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+        template = nil,
       },
       ui = {
-        enable = false,
+        enable = true,
       },
       picker = {
         -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
