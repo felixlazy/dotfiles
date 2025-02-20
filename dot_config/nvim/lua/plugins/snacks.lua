@@ -64,6 +64,7 @@ return {
         },
       },
     },
+    terminal = {},
   },
   keys = {
     {
@@ -86,6 +87,13 @@ return {
         Snacks.picker.pickers()
       end,
       desc = "pickers",
+    },
+    {
+      "<leader>btm",
+      function()
+        Snacks.terminal.open("btm")
+      end,
+      desc = "btm",
     },
   },
 }
