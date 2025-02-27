@@ -28,14 +28,20 @@ return {
         completion = {
           trigger = {
             show_on_blocked_trigger_characters = {},
-            show_on_x_blocked_trigger_characters = nil, -- Inherits from top level `completion.trigger.show_on_blocked_trigger_characters` config when not set
+            show_on_x_blocked_trigger_characters = {},
           },
-          menu = {
-            auto_show = nil, -- Inherits from top level `completion.menu.auto_show` config when not set
-            draw = {
-              columns = { { "label", "label_description", gap = 1 } },
+          list = {
+            selection = {
+              -- When `true`, will automatically select the first item in the completion list
+              preselect = true,
+              -- When `true`, inserts the completion item automatically when selecting it
+              auto_insert = true,
             },
           },
+          -- Whether to automatically show the window when new completion items are available
+          menu = { auto_show = true },
+          -- Displays a preview of the selected item on the current line
+          ghost_text = { enabled = true },
         },
       },
       completion = {

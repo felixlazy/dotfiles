@@ -32,7 +32,7 @@ if vim.g.neovide then
   -- vim.g.neovide_cursor_animate_command_line = true
   vim.g.neovide_cursor_antialiasing = false
   vim.g.neovide_hide_mouse_when_typing = true
-  vim.g.neovide_cursor_animate_in_insert_mode = true
+  vim.g.neovide_cursor_animate_in_insert_mode = false
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_title_background_color = "#222436"
   vim.g.neovide_title_text_color = "pink"
