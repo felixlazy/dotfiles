@@ -1,7 +1,10 @@
 return {
   {
     "nvim-orgmode/orgmode",
-    event = "VeryLazy",
+    keys = {
+      { "<leader>oga", "<cmd>Org agenda<cr>", desc = "org agenda" },
+      { "<leader>ogc", "<cmd>Org capture<cr>", desc = "org capture" },
+    },
     ft = { "org" },
     dependencies = {
       "danilshvalov/org-modern.nvim",
