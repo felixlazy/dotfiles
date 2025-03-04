@@ -12,9 +12,6 @@ return {
         icons = { "󰎥  ", "󰎨  ", "󰎫  ", "󰎲  ", "󰎯  ", "󰎴  " },
         position = "inline",
       },
-      bullet = {
-        right_pad = 1,
-      },
       checkbox = {
         enabled = true,
         right_pad = 0,
@@ -32,12 +29,20 @@ return {
     "HakonHarnes/img-clip.nvim",
     ft = "markdown",
     opts = {
+      default = {
+        dir_path = "image", ---@type string | fun(): string
+      },
+      filetypes = {
+        markdown = {
+          template = "![$FILE_NAME_NO_EXT]($FILE_PATH)",
+        },
+      },
       -- add options here
       -- or leave it empty to use the default settings
     },
     keys = {
       -- suggested keymap
-      { "<leader>mp", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+      { "<leader>pm", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
     },
   },
 }

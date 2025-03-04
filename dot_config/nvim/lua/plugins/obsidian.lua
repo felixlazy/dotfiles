@@ -1,23 +1,10 @@
--- local blink = require("blink.cmp")
--- blink.add_filetype_source("markdown", "obsidian")
--- blink.add_filetype_source("markdown", "obsidian_new")
--- blink.add_filetype_source("markdown", "obsidian_tags")
--- blink.add_provider("obsidian", { name = "obsidian", module = "blink.compat.source" })
--- blink.add_provider("obsidian_new", { name = "obsidian_new", module = "blink.compat.source" })
--- blink.add_provider("obsidian_tags", { name = "obsidian_tags", module = "blink.compat.source" })
 return {
   {
-    "epwalsh/obsidian.nvim",
+    "obsidian-nvim/obsidian.nvim",
     version = "*", -- Use the latest release instead of the latest commit (recommended)
     ft = "markdown",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      {
-        "ibhagwan/fzf-lua",
-        config = function()
-          require("render-markdown.core.ui")
-        end,
-      },
     },
     cmd = {
       "ObsidianBacklinks",
@@ -52,7 +39,7 @@ return {
         desc = "ObsidianQuickSwitch",
       },
       {
-        "<leader>obs",
+        "<leader>obg",
         "<cmd>ObsidianSearch<CR>",
         desc = "ObsidianSearch",
       },
@@ -96,36 +83,41 @@ return {
         "<cmd>ObsidianOpen<CR>",
         desc = "ObsidianOpen",
       },
+      {
+        "<leader>obm",
+        "<cmd>ObsidianTemplate<CR>",
+        desc = "ObsidianTemplate",
+      },
     },
 
     opts = {
       -- Define workspaces for Obsidian
       workspaces = {
         {
-          name = "obsidian",
-          path = "~/OneDrive/obsidian",
+          name = "felix",
+          path = "~/OneDrive/PARA/",
         },
       },
 
       -- Completion settings
       completion = {
         nvim_cmp = false, -- Disable completion using nvim-cmp
+        blink = true,
       },
-      notes_subdir = "limbo", -- Subdirectory for notes
-      new_notes_location = "limbo", -- Location for new notes
+      notes_subdir = "area/notes", -- Subdirectory for notes
+      new_notes_location = "area/notes", -- Location for new notes
       -- Settings for attachments
       attachments = {
-        img_folder = "files", -- Folder for image attachments
+        img_folder = "./image", -- Folder for image attachments
+        img_text_func = function(client, path)
+          path = client:vault_relative_path(path) or path
+          return string.format("![%s](/%s)", path.name, path)
+        end,
       },
       -- Settings for daily notes
-      templates = {
-        folder = "templates",
-        date_format = "%Y-%m-%d-%a",
-        time_format = "%H:%M",
-      },
       daily_notes = {
         -- Optional, if you keep daily notes in a separate directory.
-        folder = "notes/dailies",
+        folder = "area/dailies",
         -- Optional, if you want to change the date format for the ID of daily notes.
         date_format = "%Y-%m-%d",
         -- Optional, if you want to change the date format of the default alias of daily notes.
@@ -136,11 +128,14 @@ return {
         template = nil,
       },
       ui = {
-        enable = true,
+        enable = false,
       },
       picker = {
         -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
-        name = "fzf-lua",
+        name = "snacks.pick",
+      },
+      templates = {
+        folder = "resource/templates",
       },
       -- Function to generate frontmatter for notes
       note_frontmatter_func = function(note)
