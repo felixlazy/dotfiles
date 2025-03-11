@@ -21,7 +21,7 @@ return {
         else
           cb({
             type = "executable",
-            command = "D:\\software\\anaconda3\\pythonw.exe",
+            command = "~/scoop/apps/python/current/python.exe",
             args = { "-m", "debugpy.adapter" },
             options = {
               source_filetype = "python",
@@ -49,7 +49,7 @@ return {
             elseif vim.fn.executable(cwd .. "/.venv/Scripts/pythonw.exe") == 1 then
               return cwd .. "/.venv/Scripts/pythonw.exe"
             else
-              return "D:\\software\\anaconda3\\pythonw.exe"
+              return "~/scoop/apps/python/current/python.exe"
             end
           end,
         },
