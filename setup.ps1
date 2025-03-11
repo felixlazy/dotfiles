@@ -122,7 +122,6 @@ $packages=@( "windows-terminal",
   "ffmpeg",
   "fzf",
   "gcc-arm-none-eabi",
-  "gdu",
   "geekuninstaller",
   "gh",
   "github",
@@ -151,7 +150,9 @@ $packages=@( "windows-terminal",
   "flow-launcher",
   "pandoc",
   "rust-analyzer" ,
-  "gotop"
+  "gotop",
+  "onefetch",
+  "obsidian"
   
 )
 install_scoop_packages $packages
