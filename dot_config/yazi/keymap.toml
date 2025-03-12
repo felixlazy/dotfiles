@@ -7,43 +7,44 @@ run  = "plugin smart-filter"
 desc = "Smart filter"
 [[manager.prepend_keymap]]
 on = [ "u", "a" ]
-run = "plugin yamb --args=save"
+run = "plugin yamb save"
 desc = "Add bookmark"
 
 [[manager.prepend_keymap]]
 on = [ "u", "g" ]
-run = "plugin yamb --args=jump_by_key"
+run = "plugin yamb jump_by_key"
 desc = "Jump bookmark by key"
 
 [[manager.prepend_keymap]]
 on = [ "u", "G" ]
-run = "plugin yamb --args=jump_by_fzf"
+run = "plugin yamb jump_by_fzf"
 desc = "Jump bookmark by fzf"
 
 [[manager.prepend_keymap]]
 on = [ "u", "d" ]
-run = "plugin yamb --args=delete_by_key"
+run = "plugin yamb delete_by_key"
 desc = "Delete bookmark by key"
 
 [[manager.prepend_keymap]]
 on = [ "u", "D" ]
-run = "plugin yamb --args=delete_by_fzf"
+run = "plugin yamb delete_by_fzf"
 desc = "Delete bookmark by fzf"
 
 [[manager.prepend_keymap]]
 on = [ "u", "A" ]
-run = "plugin yamb --args=delete_all"
+run = "plugin yamb delete_all"
 desc = "Delete all bookmarks"
 
 [[manager.prepend_keymap]]
 on = [ "u", "r" ]
-run = "plugin yamb --args=rename_by_key"
+run = "plugin yamb rename_by_key"
 desc = "Rename bookmark by key"
 
 [[manager.prepend_keymap]]
 on = [ "u", "R" ]
-run = "plugin yamb --args=rename_by_fzf"
+run = "plugin yamb rename_by_fzf"
 desc = "Rename bookmark by fzf"
+
 [[manager.prepend_keymap]]
 on   = "l"
 run  = "plugin smart-enter"
@@ -62,3 +63,88 @@ desc = "run explorer"
 on   = [ "c", "a" ]
 run  = "plugin compress"
 desc = "Archive selected files"
+
+[[manager.prepend_keymap]]
+on = [ "P", "s" ]
+run = "plugin projects save"
+desc = "Save current project"
+
+[[manager.prepend_keymap]]
+on = [ "P", "l" ]
+run = "plugin projects load"
+desc = "Load project"
+
+[[manager.prepend_keymap]]
+on = [ "P", "P" ]
+run = "plugin projects load_last"
+desc = "Load last project"
+
+[[manager.prepend_keymap]]
+on = [ "P", "d" ]
+run = "plugin projects delete"
+desc = "Delete project"
+
+[[manager.prepend_keymap]]
+on = [ "P", "D" ]
+run = "plugin projects delete_all"
+desc = "Delete all projects"
+
+[[manager.prepend_keymap]]
+on = [ "P", "m" ]
+run = "plugin projects 'merge current'"
+desc = "Merge current tab to other projects"
+
+[[manager.prepend_keymap]]
+on = [ "P", "M" ]
+run = "plugin projects 'merge all'"
+desc = "Merge current project to other projects"
+
+[[manager.prepend_keymap]]
+on   = "<C-d>"
+run  = "plugin diff"
+desc = "Diff the selected with the hovered file"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "c" ]
+run  = "plugin vcs-files"
+desc = "Show Git file changes"
+
+[[manager.prepend_keymap]]
+on   = "o"
+run  = "plugin open-with-cmd --args=block"
+desc = "Open with command in the terminal"
+
+[[manager.prepend_keymap]]
+on   = "O"
+run  = "plugin open-with-cmd"
+desc = "Open with command"
+
+[[manager.prepend_keymap]]
+on = "<A-y>"
+run = ["plugin copy-file-contents"]
+desc = "Copy contents of file"
+
+[[manager.prepend_keymap]]
+on = [ "g", "o" ]
+run = ["cd ~/OneDrive"]
+desc = "open OneDrive"
+
+[[manager.prepend_keymap]]
+on = [ "g", "c" ]
+run = ["cd ~/.config"]
+desc = "open config"
+
+[[manager.prepend_keymap]]
+on = [ "g", "w" ]
+run = ["cd ~/workspace"]
+desc = "open workspace"
+
+[[manager.prepend_keymap]]
+on = [ "g", "p" ]
+run = ["cd ~/PersonalSpace/"]
+desc = "open PersonalSpace"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "i" ]
+run  = "plugin lazygit"
+desc = "run lazygit"

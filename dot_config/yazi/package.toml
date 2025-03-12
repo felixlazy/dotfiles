@@ -1,2 +1,62 @@
-[plugin]
-deps = [{ use = "Reledia/glow", rev = "c2ed51e" }, { use = "Reledia/hexyl", rev = "39d3d4e" }, { use = "h-hg/yamb", rev = "108347b" }, { use = "yazi-rs/plugins:smart-filter", rev = "c7feb90" }, { use = "Rolv-Apneseth/starship", rev = "9c37d37" }, { use = "yazi-rs/plugins:git", rev = "c7feb90" }, { use = "yazi-rs/plugins:smart-enter", rev = "c7feb90" }, { use = "llanosrocas/yaziline", rev = "a9f8c92" }, { use = "KKV9/compress", rev = "60b24af" }]
+[[plugin.deps]]
+use = "Reledia/glow"
+rev = "c76bf4f"
+hash = "7246659779ff5bca5f4a461bdab6e8df"
+
+[[plugin.deps]]
+use = "Reledia/hexyl"
+rev = "228a9ef"
+hash = "811ed24707d76ceb76e78b0a3bebc7a3"
+
+[[plugin.deps]]
+use = "h-hg/yamb"
+rev = "22af003"
+hash = "7cc42012a7c2099f80064d228feb8d44"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-filter"
+rev = "92f78dc"
+hash = "979899d87f80e306b5cb091b180a66aa"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "92f78dc"
+hash = "945d73cb06d2f2a0c19075b036649a5b"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "92f78dc"
+hash = "2d3c17251b47e9e59535247ad8013814"
+
+[[plugin.deps]]
+use = "llanosrocas/yaziline"
+rev = "e06c47f"
+hash = "fdda1294d75775cb8c1dc716af0980de"
+
+[[plugin.deps]]
+use = "KKV9/compress"
+rev = "60b24af"
+hash = "4808a9f0e7aec3b7c0cfadcd0ba8c1f0"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "6c639b4"
+hash = "f0aaa1fffa27f0747a378fe161e17259"
+
+[[plugin.deps]]
+use = "Lil-Dank/lazygit"
+rev = "9f924e3"
+hash = "d93946717cb5f0edd8fad839078e2195"
+
+[[plugin.deps]]
+use = "MasouShizuka/projects"
+rev = "4f11ecc"
+hash = "caecdb1b9a69c6393af201a100ff958d"
+
+[[plugin.deps]]
+use = "AnirudhG07/plugins-yazi:copy-file-contents"
+rev = "524c52c"
+hash = "6cb8c3d1a25318ecbd7e8036db083f9"
+
+[flavor]
+deps = []
