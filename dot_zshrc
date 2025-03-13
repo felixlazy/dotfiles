@@ -33,7 +33,6 @@ export EDITOR=nvim
 export LANG=en_US.UTF-8
 
 eval "$(zoxide init zsh)"
-
 # eza
 alias ls="eza --classify --color-scale --icons=always --group-directories-first --time-style iso"
 alias ll="ls -long "
@@ -48,4 +47,5 @@ source ~/.config/fzf/fzf.zsh
 # lazygit
 alias lg="lazygit"
 source ~/.config/zsh/zinit.zsh
+source ~/.config/zsh/television.zsh
 fastfetch

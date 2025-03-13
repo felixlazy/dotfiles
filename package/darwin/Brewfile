@@ -19,8 +19,6 @@ brew "fastfetch"
 brew "fd"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# Disk usage analyzer with console interface written in Go
-brew "gdu"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
@@ -55,6 +53,8 @@ brew "ripgrep"
 brew "rust"
 # Experimental Rust compiler front-end for IDEs
 brew "rust-analyzer"
+# General purpose fuzzy finder TUI
+brew "television"
 # Terminal multiplexer
 brew "tmux"
 # Blazing fast terminal file manager written in Rust, based on async I/O

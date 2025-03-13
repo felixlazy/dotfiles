@@ -1,0 +1,59 @@
+# GIT
+[[cable_channel]]
+name = "git-diff"
+source_command = "git diff --name-only"
+preview_command = "git diff --color=always {0}"
+
+[[cable_channel]]
+name = "git-reflog"
+source_command = 'git reflog'
+preview_command = 'git show -p --stat --pretty=fuller --color=always {0}'
+
+[[cable_channel]]
+name = "git-log"
+source_command = "git log --oneline --date=short --pretty=\"format:%h %s %an %cd\" \"$@\""
+preview_command = "git show -p --stat --pretty=fuller --color=always {0}"
+
+[[cable_channel]]
+name = "git-branch"
+source_command = "git --no-pager branch --all --format=\"%(refname:short)\""
+preview_command = "git show -p --stat --pretty=fuller --color=always {0}"
+
+# Docker
+[[cable_channel]]
+name = "docker-images"
+source_command = "docker image list --format \"{{.ID}}\""
+preview_command = "docker image inspect {0} | jq -C"
+
+# Shell history
+[[cable_channel]]
+name = "zsh-history"
+source_command = "tail -r $HISTFILE | cut -d\";\" -f 2-"
+
+[[cable_channel]]
+name = "bash-history"
+source_command = "tail -r $HISTFILE"
+
+[[cable_channel]]
+name = "fish-history"
+source_command = "fish -c 'history'"
+
+[[cable_channel]]
+name = "git-files"
+source_command = 'git ls-files'
+preview_command = 'bat -n --color=always {}'
+
+[[cable_channel]]
+name = "tmux list-sessions"
+source_command = 'tmux list-sessions'
+preview_command = 'tmux list-windows -t {0}'
+
+[[cable_channel]]
+name = "brew-list"
+source_command = 'brew list --versions'
+preview_command = 'brew info {0}'
+
+[[cable_channel]]
+name = "scoop-list"
+source_command = 'scoop list '
+preview_command = 'scoop list {0}'
