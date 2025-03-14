@@ -1,13 +1,11 @@
 {{ if ne .chezmoi.os "windows" }}
 Documents
-setup.ps1
 .config/nvim/lua/utils/win_ime_toggle.lua
 .chezmoiscripts/windown/**
 .config/pwsh/
 .config/fzf/*.ps1
 .config/television/windown_channels.toml
-{{ end }}
-{{ if ne .chezmoi.os "darwin" }}
+{{else}}
 .config/kitty/
 .config/nvim/lua/plugins/image.lua
 .config/tmux/
@@ -15,11 +13,14 @@ setup.ps1
 .zshrc
 .config/fzf/*.zsh
 .config/ghostty/
-.chezmoiscripts/darwin/**
 .config/zinit/zinit.zsh
-.aerospace.toml
 .config/television/darwin_channels.toml
 {{ end }}
+
+{{ if ne .chezmoi.os "darwin" }}
+.chezmoiscripts/darwin/**
+.aerospace.toml
+{{ end }}
+
 README.md
 package/
-setup.ps1

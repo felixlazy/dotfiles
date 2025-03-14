@@ -5,6 +5,7 @@ Invoke-Expression (&starship init powershell)
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 # 环境变量设置
+$Env:home="C:\Users\felix"
 $Env:XDG_CONFIG_HOME=$Env:home+"\.config"
 $Env:XDG_DATA_HOME  =$Env:home+"\.local\share"
 $Env:XDG_STATE_HOME =$Env:home+"\.local\share"
