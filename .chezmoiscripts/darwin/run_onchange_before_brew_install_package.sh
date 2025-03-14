@@ -9,5 +9,5 @@ else
 fi
 
 # Install packages using Brewfile
-brew bundle --file="~/OneDrive/package/darwin/Brewfile"
+brew bundle --file="~/.local/share/chezmoi/package/darwin/Brewfile"
 
