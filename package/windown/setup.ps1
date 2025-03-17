@@ -106,6 +106,7 @@ function install_scoop_packages($packages)
 }
 scoop bucket add extras
 scoop bucket add main
+scoop bucket add nerd-fonts
 install_scoop_packages("aria2")
 $packages=@(
   "7zip",
@@ -160,7 +161,8 @@ $packages=@(
   "wezterm",
   "windows-terminal",
   "yazi",
-  "zoxide"
+  "zoxide",
+  "Maple-Mono-NF-CN"
 )
 install_scoop_packages $packages
 catppuccin
