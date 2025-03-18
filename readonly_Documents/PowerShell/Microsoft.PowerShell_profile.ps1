@@ -17,6 +17,8 @@ $Env:scoop=$Env:home+"\scoop"
 $Env:EZA_CONFIG_DIR = $Env:XDG_CONFIG_HOME+"\eza"
 $Env:EDITOR='nvim'
 $Env:RUNEWIDTH_EASTASIAN=0
+$Env:BAT_CONFIG_PATH=$Env:home+"\.config\bat\config"
+$Env:BAT_CONFIG_DIR=$Env:home+"\.config\bat"
 
 #设置代理
 $Env:http_proxy="http://127.0.0.1:7890"

@@ -31,6 +31,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export EZA_CONFIG_DIR="$HOME/.config/eza"
 export EDITOR=nvim
 export LANG=en_US.UTF-8
+export BAT_CONFIG_PATH="$HOME/.config/bat/config"
+export BAT_CONFIG_DIR="$HOME/.config/bat"
 
 eval "$(zoxide init zsh)"
 # eza
