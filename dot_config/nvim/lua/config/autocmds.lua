@@ -33,3 +33,8 @@ vim.api.nvim_create_autocmd("ModeChanged", {
     vim.api.nvim_command(" lua Snacks.indent.enable()")
   end,
 })
+-- win模式下自动切换输入法
+
+if vim.fn.has("win32") == 1 then
+  require("utils.win_ime_toggle")
+end
