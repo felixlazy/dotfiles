@@ -1,13 +1,13 @@
 [user]
-	name = {{ .name }}
-	email = {{ .email }}
+	name = felix
+	email = Wu-Felix@outlook.com
 [core]
   pager = delta
 [interactive]
   diffFilter = delta --color-only
 [delta]
   navigate = true  # use n and N to move between diff sections
-  dark = true      # or light = true, or omit for {{ .chezmoi.config.color }}-detection
+  dark = true      # or light = true, or omit for auto-detection
 [delta]
   minus-style                   = syntax "#3a273a"
   minus-non-emph-style          = syntax "#3a273a"
