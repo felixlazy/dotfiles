@@ -8,12 +8,21 @@ palette = "catppuccin_macchiato"
 # Starship modules
 [character]
 # Note the use of Catppuccin color 'peach'
-success_symbol = "[[󰊠](green) ❯](peach)"
-error_symbol = "[[󰧵](red) ❯](peach)"
-vimcmd_symbol = "[󰄛 ❮](subtext1)" # For use with zsh-vi-mode
+error_symbol = "[[✗](red) ❯](peach)"
+vimcmd_symbol = "[[](cyan) ❯](peach)" # For use with zsh-vi-mode
 
-[git_branch]
-style = "bold mauve"
+[git_status]
+untracked = '[ $count](bold yellow) '
+staged = '[ $count](bold green) '
+stashed = "[ ](cyan) "
+deleted = '[ $count](bold red) '
+modified= '[ $count](bold blue) '
+behind = '[](bold purple) '
+ahead = '[](bold purple) '
+format = '([$all_status$ahead_behind]($style))'
+
+[[battery.display]]
+threshold = 50
 
 [directory]
 truncation_length = 4
@@ -211,6 +220,10 @@ symbol = " "
 
 [ocaml]
 symbol = " "
+
+[os]
+format = "[$symbol](#8db0ff)"
+disabled = false
 
 [os.symbols]
 Alpaquita = " "
