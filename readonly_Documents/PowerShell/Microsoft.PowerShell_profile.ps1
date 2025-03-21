@@ -1,5 +1,4 @@
 Import-Module posh-git
-Import-Module PSCompletions
 
 Invoke-Expression (&starship init powershell)
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
@@ -19,14 +18,17 @@ $Env:EDITOR='nvim'
 $Env:RUNEWIDTH_EASTASIAN=0
 $Env:BAT_CONFIG_PATH=$Env:home+"\.config\bat\config"
 $Env:BAT_CONFIG_DIR=$Env:home+"\.config\bat"
+$Env:VISUAL = "nvim"
 
 #设置代理
 $Env:http_proxy="http://127.0.0.1:7890"
 $Env:https_proxy="http://127.0.0.1:7890"
 
-. "$Env:XDG_CONFIG_HOME\fzf\PSFzf.ps1"
 . "$Env:XDG_CONFIG_HOME\pwsh\PSReadLine.ps1"
+. "$Env:XDG_CONFIG_HOME\fzf\PSFzf.ps1"
 . "$Env:XDG_CONFIG_HOME\pwsh\Eza.ps1"
 . "$Env:XDG_CONFIG_HOME\pwsh\Bind.ps1"
 . "$Env:XDG_CONFIG_HOME\pwsh\Onefetch.ps1"
+
+Import-Module PSCompletions
 fastfetch

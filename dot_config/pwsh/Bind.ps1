@@ -9,7 +9,7 @@ function fe
 
 Set-alias lg lazygit
 Set-alias 'sudo' 'gsudo'
-Set-alias 'Ctrl+f' 'cd "$(fzf)\.."'
+
 # yzai
 function y
 {
