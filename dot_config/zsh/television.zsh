@@ -1,4 +1,4 @@
-eval "$(tv init zsh)"
+# eval "$(tv init zsh)"
 _tv_search() {
   emulate -L zsh
   zle -I

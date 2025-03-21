@@ -4,6 +4,11 @@ function ex
 }
 function fe
 {
+  nvim $(fzf)
+}
+
+function tve
+{
   nvim $(tv)
 }
 

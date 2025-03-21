@@ -44,7 +44,6 @@ function M.setup(config)
 		{ mods = M.mod, key = "Space", action = act.QuickSelect },
 		{ mods = M.mod, key = "X", action = act.ActivateCopyMode },
 		{ mods = M.mod, key = "f", action = act.Search("CurrentSelectionOrEmptyString") },
-		{ mods = "ALT", key = "c", action = act.CopyTo("Clipboard") },
 		{ mods = "ALT", key = "v", action = act.PasteFrom("Clipboard") },
 		{ mods = M.mod, key = "v", action = "ActivateCopyMode" },
 		{

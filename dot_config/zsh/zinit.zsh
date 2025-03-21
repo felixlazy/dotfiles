@@ -33,3 +33,4 @@ zinit ice as"command" from"gh-r" \
   atpull"%atclone" src"init.zsh"
   zinit light starship/starship
 # zinit light jeffreytse/zsh-vi-mode
+zinit light wfxr/forgit

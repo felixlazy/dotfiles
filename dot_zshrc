@@ -33,6 +33,7 @@ export EDITOR=nvim
 export LANG=en_US.UTF-8
 export BAT_CONFIG_PATH="$HOME/.config/bat/config"
 export BAT_CONFIG_DIR="$HOME/.config/bat"
+export TERM=xterm-256color
 
 eval "$(zoxide init zsh)"
 # eza
@@ -50,4 +51,5 @@ source ~/.config/fzf/fzf.zsh
 alias lg="lazygit"
 source ~/.config/zsh/zinit.zsh
 source ~/.config/zsh/television.zsh
+source ~/.fzf.zsh
 fastfetch
