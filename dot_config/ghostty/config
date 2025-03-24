@@ -4,4 +4,7 @@ font-family-italic = Maple Mono NF CN
 font-family-bold-italic = Maple Mono NF CN 
 font-size = 16
 theme=tokyonight_moon
-
+custom-shader = ./ghostty-shaders/bettercrt.glsl
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
