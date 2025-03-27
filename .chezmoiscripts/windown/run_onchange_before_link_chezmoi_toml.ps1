@@ -1,28 +1,13 @@
-# Self-elevate the script if required
-if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator'))
+$basePath = Get-Item "$Home/.config/chezmoi" -ErrorAction SilentlyContinue
+if (-not $basePath)
 {
-  if ([int](Get-CimInstance -Class Win32_OperatingSystem | Select-Object -ExpandProperty BuildNumber) -ge 6000)
+  $basePath = New-Item -ItemType Directory -Path "$Home/.config/chezmoi"
+}
+Get-Item $Home/OneDrive/.config/chezmoi/chezmoi.toml | ForEach-Object {
+  $linkPath = Join-Path $basePath $_.Name
+  if (Test-Path $linkPath)
   {
-    $CommandLine = "-NoExit -File `"" + $MyInvocation.MyCommand.Path + "`" " + $MyInvocation.UnboundArguments
-    Start-Process -Wait -FilePath pwsh.exe -Verb Runas -ArgumentList "-NoProfile", $CommandLine
-    Exit
+    Remove-Item -Path $linkPath -Force
   }
-}
-$path = "C:\Users\felix\.config\chezmoi\chezmoi.toml"
-$target = "C:\Users\felix\OneDrive\.config\chezmoi\chezmoi.toml"
-$directoryPath = "C:\Users\felix\.config\chezmoi"
-if (-Not (Test-Path $directoryPath))
-{
-  New-Item -ItemType Directory -Path $directoryPath
-  Write-Host "Directory created: $directoryPath"
-} else
-{
-  Write-Host "Directory already exists: $directoryPath"
-}
-if (-Not (Test-Path $path))
-{
-  New-Item -ItemType SymbolicLink -Path $path -Target $target
-} else
-{
-  Write-Host "$path directory exists"
+  New-Item -ItemType HardLink -Path $linkPath -Target $_.FullName
 }
