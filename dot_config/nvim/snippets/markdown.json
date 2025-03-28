@@ -1,0 +1,43 @@
+{
+	"details": {
+		"prefix": "details",
+		"body": ["<details><summary>${1}</summary>", "${2}", "</details>${0}"],
+		"description": "details"
+	},
+	"video": {
+		"prefix": "video",
+		"body": [
+			"<video width=\"${1:560}\" height=\"${2:315}\" controls>",
+			"<source src=\"${3}\" type=\"video/${4:mp4}\">",
+			"</video>"
+		],
+		"description": "vido"
+	},
+	"audio": {
+		"prefix": "audio",
+		"body": [
+			"<audio controls>",
+			"<source src=\"${1}\" type=\"audio/${2:mp3}\">",
+			"</audio>"
+		],
+		"description": "audio"
+	},
+	"frame": {
+		"prefix": "frame",
+		"body": [
+			"<iframe src=\"${1}\"",
+			"width=\"${2:560}\" height=\"${3:315}\" frameborder=\"0\"",
+			"allow=\"autoplay; fullscreen\"",
+			"allowfullscreen>",
+			"</iframe>"
+		],
+		"description": "frame"
+	},
+	"link_image": {
+		"prefix": "link_image",
+		"body": [
+			"[<img src=\"${1}\" alt=\"${2}\" width=\"${3:300}\" height=\"${4:200}\">](${5})"
+		],
+		"description": "link_image"
+	}
+}

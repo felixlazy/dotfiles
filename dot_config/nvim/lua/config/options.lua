@@ -24,8 +24,8 @@ end
 
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
-  vim.o.guifont = "Maple Mono NF CN:h14" -- text below applies for VimScript
-  vim.g.neovide_cursor_vfx_mode = "ripple"
+  vim.o.guifont = "Maple Mono NF CN:h14::#e-subpixelantialias" -- text below applies for VimScript
+  vim.g.neovide_cursor_vfx_mode = "railgun"
   -- vim.g.neovide_transparency = 0.5
   -- vim.cmd([[colorscheme onedark]])
   -- vim.g.neovide_fullscreen = true
