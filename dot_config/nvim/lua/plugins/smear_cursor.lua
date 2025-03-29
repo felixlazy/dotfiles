@@ -5,7 +5,7 @@ return {
       if vim.g.neovide then
         return false
       end
-      if os.getenv("TERM") ~= "xterm-kitty" then
+      if vim.fn.has("win32") == 1 then
         return true
       else
         return false
