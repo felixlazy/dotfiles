@@ -2,13 +2,12 @@ tap "daipeihust/tap"
 tap "gambithunt/tools"
 tap "homebrew/bundle"
 tap "koekeishiya/formulae"
+tap "laishulu/homebrew"
 tap "nikitabobko/tap"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Yet another cross-platform graphical process/system monitor
 brew "bottom"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.13"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
 # Modern, maintained replacement for ls
@@ -17,6 +16,10 @@ brew "eza"
 brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# User-friendly command-line shell for UNIX-like operating systems
+brew "fish"
+# Plugin manager for the Fish shell
+brew "fisher"
 # Platform built on V8 to build network applications
 brew "node"
 # Terminal JSON viewer
@@ -35,6 +38,8 @@ brew "git-flow"
 brew "glow"
 # Command-line hex viewer
 brew "hexyl"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Simple terminal UI for git commands
@@ -49,12 +54,16 @@ brew "neovide"
 brew "onefetch"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
+# Paste PNG into files
+brew "pngpaste"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Safe, concurrent, practical language
 brew "rust"
 # Experimental Rust compiler front-end for IDEs
 brew "rust-analyzer"
+# Modernized, complete, self-contained TeX/LaTeX engine
+brew "tectonic"
 # General purpose fuzzy finder TUI
 brew "television"
 # Terminal multiplexer
@@ -67,6 +76,8 @@ brew "yq"
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
+# MacOS Input Source Manager
+brew "laishulu/homebrew/macism"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "aerospace"
 cask "font-maple-mono-nf-cn"
