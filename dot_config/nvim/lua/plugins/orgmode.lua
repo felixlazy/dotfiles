@@ -11,12 +11,11 @@ return {
     },
     opts = {
       org_agenda_files = {
-        "~/OneDrive/orgfiles/work/*.org",
-        "~/OneDrive/orgfiles/*.org",
-        "~/OneDrive/orgfiles/private/*.org",
+        "~/OneDrive/obsidian/**/*",
       },
-      org_default_notes_file = "~/OneDrive/orgfiles" .. "/refile.org",
-      org_todo_keywords = { "TODO(t)", "NEXT", "WAITING", "BUG", "|", "CANCEL", "DONE" },
+      org_default_notes_file = "~/OneDrive/obsidian/archive" .. "/refile.org",
+      org_todo_keywords = { "TODO(t)", "NEXT(n)", "WAITING(w)", "BUG(b)", "|", "CANCEL(c)", "DONE(d)", "FIXED(f)" },
+      org_time_stamp_rounding_minutes = 1,
       ui = {
         folds = {
           colored = false,
@@ -47,12 +46,12 @@ return {
         tw = {
           description = "works Tasks",
           template = "* TODO [#C] %?\n  DEADLINE: %t",
-          target = "~/OneDrive/orgfiles" .. "/work.org",
+          target = "~/OneDrive/obsidian/area/" .. "wokr/work.org",
         },
         tp = {
           description = "personal Tasks",
           template = "* TODO [#C] %?\n  DEADLINE: %t",
-          target = "~/OneDrive/orgfiles" .. "/personal.org",
+          target = "~/OneDrive/obsidian/area/" .. "personal/personal.org",
         },
       },
       mappings = {
@@ -64,10 +63,17 @@ return {
     },
   },
   {
-    "akinsho/org-bullets.nvim",
+    "nvim-orgmode/org-bullets.nvim",
     ft = { "org" },
     opts = {
-      symbols = { headlines = { "󰎥 ", "󰎨 ", "󰎫 ", "󰎲 " } },
+      symbols = {
+        list = "",
+        headlines = { "󰎥 ", "󰎨 ", "󰎫 ", "󰎲 " },
+        checkboxes = {
+          half = { "", "@org.checkbox.halfchecked" },
+          todo = { "", "@org.keyword.todo" },
+        },
+      },
     },
   },
   -- {
