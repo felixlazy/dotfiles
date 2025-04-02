@@ -14,8 +14,6 @@ local imm32 = ffi.load("imm32.dll")
 local ime_hwnd
 local ime_group = vim.api.nvim_create_augroup("ime_toggle", { clear = true })
 
--- Get ime control's hwnd after InsertEnter or CmdlineEnter
--- to ensure getting correct foregroundwindow
 vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
   group = ime_group,
   once = true,
@@ -39,12 +37,27 @@ local function get_ime_mode()
   return user32.SendMessageA(ime_hwnd, WM_IME_CONTROL, IMC_GETCONVERSIONMODE, 0)
 end
 
+local insert_ime_state = 0
+
 vim.api.nvim_create_autocmd({ "InsertLeave", "CmdlineLeave" }, {
   group = ime_group,
-  desc = "Toggle ime to English mode on normal mode",
+  desc = "Toggle IME to English mode in normal mode",
   callback = function()
     if ime_mode_ch == get_ime_mode() then
-      set_ime_mode(ime_mode_en)
+      insert_ime_state = 1
+    else
+      insert_ime_state = 0
+    end
+    set_ime_mode(ime_mode_en)
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
+  group = ime_group,
+  desc = "Resume input according to the input method of the last insertion mode",
+  callback = function()
+    if insert_ime_state == 1 then
+      set_ime_mode(ime_mode_ch)
     end
   end,
 })
