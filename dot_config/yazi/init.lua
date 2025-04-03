@@ -43,3 +43,7 @@ require("copy-file-contents"):setup({
 	append_char = "\n",
 	notification = true,
 })
+require("custom-shell"):setup({
+	history_path = "default",
+	save_history = true,
+})

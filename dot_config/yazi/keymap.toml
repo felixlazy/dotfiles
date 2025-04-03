@@ -148,3 +148,13 @@ desc = "open PersonalSpace"
 on   = [ "g", "i" ]
 run  = "plugin lazygit"
 desc = "run lazygit"
+
+[[manager.prepend_keymap]]
+on = [  ";" ]
+run = 'plugin custom-shell -- auto --interactive'
+desc = "custom-shell as default, interactive"
+
+[[manager.prepend_keymap]]
+on = [  ":" ]
+run = 'plugin custom-shell -- auto --interactive --block'
+desc = "custom-shell as default, interactive, block"
