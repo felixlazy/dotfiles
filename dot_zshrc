@@ -48,6 +48,7 @@ export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_pr
 source ~/.config/fzf/fzf.zsh
 # lazygit
 alias lg="lazygit"
+alias lgf="lazygit -f"
 source ~/.config/zsh/zinit.zsh
 source ~/.config/zsh/television.zsh
 source ~/.fzf.zsh
