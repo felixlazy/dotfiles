@@ -162,7 +162,9 @@ $packages=@(
   "windows-terminal",
   "yazi",
   "zoxide",
-  "Maple-Mono-NF-CN"
+  "Maple-Mono-NF-CN",
+  "gpg",
+  "aichat"
 )
 install_scoop_packages $packages
 catppuccin

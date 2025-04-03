@@ -14,7 +14,10 @@ function tve
 
 Set-alias lg lazygit
 Set-alias 'sudo' 'gsudo'
-
+function ai
+{
+  nvim -c "terminal aichat"
+}
 # yzai
 function y
 {

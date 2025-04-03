@@ -4,6 +4,8 @@ tap "homebrew/bundle"
 tap "koekeishiya/formulae"
 tap "laishulu/homebrew"
 tap "nikitabobko/tap"
+# All-in-one AI-Powered CLI Chat & Copilot
+brew "aichat"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Yet another cross-platform graphical process/system monitor
@@ -36,6 +38,8 @@ brew "git-delta"
 brew "git-flow"
 # Render markdown on the CLI
 brew "glow"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
 # Command-line hex viewer
 brew "hexyl"
 # Interpreted, interactive, object-oriented programming language
@@ -44,6 +48,8 @@ brew "python@3.13"
 brew "imagemagick"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Package manager for the Lua programming language
+brew "luarocks"
 # Language Server Protocol for Markdown
 brew "marksman"
 # Ambitious Vim-fork focused on extensibility and agility

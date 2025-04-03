@@ -51,6 +51,11 @@
 
 - windoiwn
 
+> [!WARNING]
+> On Windows, it will modify the registry. Please back up the registry.
+> The main changes include disabling the browser's Ctrl+N shortcut
+> and remapping Caps Lock to Ctrl.
+
 ```ps1
 chezmoi init https://github.com/Wu-Felix/dotfiles.git
 ```

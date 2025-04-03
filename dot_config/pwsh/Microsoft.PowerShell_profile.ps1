@@ -30,6 +30,7 @@ $Env:https_proxy="http://127.0.0.1:7890"
 . "$Env:XDG_CONFIG_HOME\pwsh\Bind.ps1"
 . "$Env:XDG_CONFIG_HOME\pwsh\Onefetch.ps1"
 . "$Env:XDG_CONFIG_HOME\pwsh\Chezmoi.ps1"
+. "$Env:XDG_CONFIG_HOME\pwsh\aichat.ps1"
 
 Import-Module PSCompletions
 fastfetch

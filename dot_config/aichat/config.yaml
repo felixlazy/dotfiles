@@ -1,0 +1,14 @@
+# see https://github.com/sigoden/aichat/blob/main/config.example.yaml
+
+model: openai:gpt-4o-mini
+clients:
+  - type: openai
+  - type: openai-compatible
+    name: deepseek
+    api_base: https://api.deepseek.com
+stream: true # Controls whether to use the stream-style API.
+save: true # Indicates whether to persist the message
+keybindings: vi # Choose keybinding style (emacs, vi)
+editor: nvim # Specifies the command used to edit input buffer or session.yaml. env: EDITOR
+wrap: no # Controls text wrapping (no, auto, <max-width>)
+wrap_code: false # Enables or disables wrapping of code blocks
