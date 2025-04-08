@@ -18,6 +18,10 @@ function ai
 {
   nvim -c "terminal aichat"
 }
+function gw
+{
+  glazewm start --config "C:\Users\felix\.config/glazewm/glazewm.yaml"
+}
 # yzai
 function y
 {

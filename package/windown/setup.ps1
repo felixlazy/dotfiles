@@ -164,7 +164,9 @@ $packages=@(
   "zoxide",
   "Maple-Mono-NF-CN",
   "gpg",
-  "aichat"
+  "aichat",
+  "zebar",
+  "glazewm"
 )
 install_scoop_packages $packages
 catppuccin

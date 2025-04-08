@@ -1,0 +1,275 @@
+/**
+ * Import the Nerdfonts icon font.
+ * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
+ */
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+:root{
+  --bg:#222436;
+  --bg_dark:#1e2030;
+  --bg_dark1:#191B29;
+  --bg_highlight:#2f334d;
+  --blue:#82aaff;
+  --blue0:#3e68d7;
+  --blue1:#65bcff;
+  --blue2:#0db9d7;
+  --blue5:#89ddff;
+  --blue6:#b4f9f8;
+  --blue7:#394b70;
+  --comment:#636da6;
+  --cyan:#86e1fc;
+  --dark3:#545c7e;
+  --dark5:#737aa2;
+  --fg:#c8d3f5;
+  --fg_dark:#828bb8;
+  --fg_gutter:#3b4261;
+  --green:#c3e88d;
+  --green1:#4fd6be;
+  --green2:#41a6b5;
+  --magenta:#c099ff;
+  --magenta2:#ff007c;
+  --orange:#ff966c;
+  --purple:#fca7ea;
+  --red:#ff757f;
+  --red1:#c53b53;
+  --teal:#4fd6be;
+  --terminal_black:#444a73;
+  --yellow:#ffc777;
+}
+i {
+	/* color: rgb(115 130 175 / 95%); */
+	margin-right: 8px;
+}
+
+body {
+	color: rgb(255 255 255 / 90%);
+	overflow: hidden;
+	font-size: 18px;
+}
+
+html,
+body,
+#root {
+	height: 100%;
+}
+
+@keyframes flash {
+	from {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+#root {
+	background: var(--bg);
+	user-select: none;
+	border-radius: 20px;
+}
+
+.app {
+	display: grid;
+	grid-template-columns: 1fr 0.5fr 1fr;
+	align-items: center;
+	height: 100%;
+	font-family: Maple Mono NF CN;
+  font-style=italic;
+	padding: 5px 8px;
+	background: var(--bg);
+	border-radius: 20px;
+}
+
+.left,
+.center,
+.right {
+	display: flex;
+}
+
+.center {
+	justify-self: end;
+	font-size: 14px;
+	margin-right: 5px;
+}
+
+.right {
+	justify-content: end;
+}
+
+.logo,
+.binding-mode,
+.tiling-direction,
+.network,
+.memory,
+.volume,
+.cpu,
+.cycle_count,
+.battery {
+	margin-right: 5px;
+}
+
+.network,
+.cycle_count,
+.uptime,
+.memory,
+.cpu,
+.battery,
+.weather {
+	background: rgb(255 255 255 / 7%);
+	padding: 2px 6px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 30px;
+}
+
+.volume {
+	background: rgb(255 255 255 / 7%);
+	padding: 2px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 50px;
+}
+
+.btn {
+	border: none;
+	background: transparent;
+	color: var(--fg);
+	cursor: pointer;
+}
+
+.btn1 {
+	border: none;
+	background: transparent;
+	color: var(--purple);
+	cursor: pointer;
+}
+
+.workspaces {
+	display: flex;
+	align-items: center;
+}
+
+.workspace {
+	background: var(--bg_dark);
+	color: var(--fg_dark);
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+
+	&.displayed {
+	background: var(--bg_dark);
+	}
+
+	&.focused,
+	&:hover {
+		background: var(--blue);
+		color: var(--bg_dark1);
+	}
+}
+
+.workspace:not(:nth-child(7)) {
+	margin-right: 15px;
+}
+
+.binding-mode,
+.tiling-direction {
+	background: rgb(255 255 255 / 15%);
+	color: rgb(255 255 255 / 90%);
+	border-radius: 10px;
+	line-height: 1;
+	padding: 4px 5px;
+	border: 0;
+	cursor: pointer;
+}
+
+.binding-mode {
+	margin-right: 4px;
+}
+
+.orange {
+	color: #ffa500;
+}
+
+.red {
+	color: #ff4500;
+}
+
+.green {
+	color: #33ff57;
+}
+
+.cpu {
+	color: var(--blue);
+}
+
+.stack {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: rgb(255 255 255 / 7%);
+	border-radius: 10px;
+	padding: 0px 8px;
+	font-size: 12px;
+	margin-right: 5px;
+}
+
+.stack-nw-speed {
+	display: flex;
+	width: 100px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: rgb(255 255 255 / 7%);
+	border-radius: 10px;
+	padding: 0px 8px;
+	font-size: 12px;
+	margin-right: 5px;
+}
+
+.cpu1 {
+	color: #1e90ff;
+}
+
+.cpu .high-usage {
+	color: #900029;
+	animation: flash 0.5s infinite;
+}
+
+.memory {
+	color: violet;
+}
+
+.memory .high-usage {
+	color: #900029;
+	animation: flash 0.5s infinite;
+}
+
+.battery {
+	position: relative;
+	/* color: #ffa500; */
+}
+
+.battery .charging-icon {
+	position: absolute;
+	font-size: 8px;
+	left: 1px;
+	top: 3px;
+	color: rgb(255, 60, 0);
+}
+
+.cycle_count1 {
+	color: yellowgreen;
+}
+
+.uptime1 {
+	color: yellow;
+}
+
+.weather {
+	color: yellow;
+}
