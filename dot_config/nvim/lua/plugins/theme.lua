@@ -12,6 +12,21 @@ return {
     priority = 1000,
     config = function()
       if true then
+        require("tokyonight").setup({
+          on_highlights = function(highlights, colors)
+            highlights["@org.agenda.deadline"] = { italic = true, fg = "#ff757f" }
+            highlights["@org.agenda.scheduled"] = { italic = true, fg = "#c3e88d" }
+            highlights["@org.agenda.scheduled_past"] = { italic = true, fg = "#c3e88d" }
+            highlights["@org.agenda.day"] = { italic = true, fg = "#fca7ea" }
+            highlights["@org.agenda.today"] = { italic = true, fg = "#ff966c" }
+            highlights["@org.agenda.weekend"] = { italic = true, fg = "#4fd6be" }
+            highlights["@org.priority.highest"] = { italic = true, fg = "#e26a75" }
+            highlights["@org.priority.high"] = { italic = true, fg = "#e26a75" }
+            highlights["@org.priority.default"] = { italic = true, fg = "#41a6b5" }
+            highlights["@org.priority.low"] = { italic = true, fg = "#c099ff" }
+            highlights["@org.priority.lowest"] = { italic = true, fg = "#c099ff" }
+          end,
+        })
       else
         require("tokyonight").setup({
           transparent = true,

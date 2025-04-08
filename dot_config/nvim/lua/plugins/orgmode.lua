@@ -11,10 +11,31 @@ return {
     },
     opts = {
       org_agenda_files = {
-        "~/OneDrive/obsidian/**/*",
+        "~/OneDrive/PARA/**/*",
       },
+      win_split_mode = "float",
       org_default_notes_file = "~/OneDrive/obsidian/archive" .. "/refile.org",
-      org_todo_keywords = { "TODO(t)", "NEXT(n)", "WAITING(w)", "BUG(b)", "|", "CANCEL(c)", "DONE(d)", "FIXED(f)" },
+      org_todo_keywords = {
+        "TODO(t)",
+        "NEXT(n)",
+        "WAITING(w)",
+        "BUG(b)",
+        "FIXED(f)",
+        "|",
+        "CANCEL(c)",
+        "DONE(d)",
+        "CLOSED(x)",
+      },
+      org_todo_keyword_faces = {
+        WAITING = ":foreground #ffc777 :weight bold",
+        NEXT = "foreground #ff757f :slant",
+        FIXED = "foreground #73daca :slant",
+        FIX = "foreground #89ddff :slant",
+        TODO = "foreground #4fd6be:slant",
+        DONE = "foreground #2f334d:slant",
+        CANCLE = "foreground #2f334d:slant",
+        CLOSED = "foreground #2f334d:slant",
+      },
       org_time_stamp_rounding_minutes = 1,
       ui = {
         folds = {
