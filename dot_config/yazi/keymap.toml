@@ -158,3 +158,8 @@ desc = "custom-shell as default, interactive"
 on = [  ":" ]
 run = 'plugin custom-shell -- auto --interactive --block'
 desc = "custom-shell as default, interactive, block"
+
+[[manager.prepend_keymap]]
+on = ["C"]
+run = "plugin ouch"
+desc = "Compress with ouch"

@@ -1,12 +1,12 @@
 [[plugin.deps]]
 use = "Reledia/glow"
-rev = "c76bf4f"
-hash = "a6b78bf9af5390e3a85a6951fbb7b93"
+rev = "2da96e3"
+hash = "2540c4bcb855c39a413d6a0dcea07c06"
 
 [[plugin.deps]]
 use = "Reledia/hexyl"
-rev = "228a9ef"
-hash = "cdc65cfe4e60e1bf5afe5769d074fa9c"
+rev = "016a09b"
+hash = "57c25c6a44801a08fda2d4b12d855f53"
 
 [[plugin.deps]]
 use = "h-hg/yamb"
@@ -15,53 +15,63 @@ hash = "7cc42012a7c2099f80064d228feb8d44"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "92f78dc"
-hash = "f0c4b41b5d19a3144958383333eff6e7"
+rev = "864a021"
+hash = "979899d87f80e306b5cb091b180a66aa"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "92f78dc"
-hash = "806cb2842b64e976ba2c65a3e3724518"
+rev = "864a021"
+hash = "394cc54375e5638237043d23ad34d478"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "92f78dc"
-hash = "7918aab6a71caf31b58411f789195677"
+rev = "864a021"
+hash = "2d3c17251b47e9e59535247ad8013814"
 
 [[plugin.deps]]
 use = "llanosrocas/yaziline"
-rev = "e06c47f"
-hash = "7df84299e89ffefd4686d1e20a295c8a"
-
-[[plugin.deps]]
-use = "KKV9/compress"
-rev = "60b24af"
-hash = "ee025be766240cc98e671754ac836da3"
+rev = "1342efe"
+hash = "33ec7d4f35d2779afccf709a50bc78c0"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "6c639b4"
-hash = "5614c46d5de76623c283d415bfac8025"
+rev = "6fde3b2"
+hash = "929d8013e8d2722c2c1834140451f407"
 
 [[plugin.deps]]
 use = "MasouShizuka/projects"
 rev = "4f11ecc"
-hash = "17fa17295d27864f62875f06a77f72e7"
+hash = "caecdb1b9a69c6393af201a100ff958d"
 
 [[plugin.deps]]
 use = "AnirudhG07/plugins-yazi:copy-file-contents"
 rev = "524c52c"
-hash = "27c50e6bc15c09096505b805b238ade0"
+hash = "6cb8c3d1a25318ecbd7e8036db083f9"
 
 [[plugin.deps]]
 use = "AnirudhG07/custom-shell"
 rev = "6b4550a"
-hash = "43019cca17a4d7b41746c2e0a6b8f33f"
+hash = "4ef246dc2e1aa982c3cde89d9a599d00"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
 rev = "7a08a09"
-hash = "a1fa2b3e1826c3a34804ea8c548e9f80"
+hash = "5249d156940fa0ee9f00ca148e574eeb"
+
+[[plugin.deps]]
+use = "Ape/open-with-cmd"
+rev = "433cf30"
+hash = "a6d150d153ed3491505b02f4dc174e89"
+
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "2496cd9"
+hash = "73fc3855e13f8c28faf6114fc5de38ab"
+
+[[plugin.deps]]
+use = "BorhanSaflo/compress"
+rev = "a8608fc"
+hash = "eb788dd077a81f696d03ce4852ec3149"
 
 [flavor]
 deps = []
