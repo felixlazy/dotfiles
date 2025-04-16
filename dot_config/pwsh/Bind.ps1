@@ -35,3 +35,11 @@ function y
   }
   Remove-Item -Path $tmp
 }
+function mpvc
+{
+  param(
+    [Parameter(ValueFromRemainingArguments = $true)]
+    [string[]]$Files
+  )
+  mpv --autofit=80%x80% --geometry=50%:50% @Files
+}

@@ -19,6 +19,7 @@ $Env:RUNEWIDTH_EASTASIAN=0
 $Env:BAT_CONFIG_PATH=$Env:home+"\.config\bat\config"
 $Env:BAT_CONFIG_DIR=$Env:home+"\.config\bat"
 $Env:VISUAL = "nvim"
+$Env:MPV_HOME=$Env:home+"\.config\mpv"
 
 #设置代理
 $Env:http_proxy="http://127.0.0.1:7890"

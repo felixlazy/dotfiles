@@ -1,0 +1,70 @@
+border=no                     # 窗口是否有边框
+keep-open=yes                 # 窗口播放完后是否保持打开
+snap-window=yes               # 窗口贴边是否自动吸附 ( 仅限 Windows )
+ontop=yes                     # 窗口置顶，始终显示在最前面
+autofit=35%x35%
+keepaspect=yes                # 保持宽高比，避免拉伸变形
+mute=no                       # 启动时不静音
+osd-level=1                   # OSD 显示等级（1 = 显示基础提示）
+speed=1.0                     # 默认播放速度为正常速率
+osd-bar=no
+osd-level=1
+osd-duration=1000
+image-display-duration=4.5    # 看图(以幻灯片的形式自动播放)间隔为 4.5 s
+screenshot-format=png         # 截图创建格式
+
+slang=chi,eng,jp              # 切换内封字幕轨优先级--靠左优先,靠右稍后
+alang=eng,chi,jp              # 切换内封音频轨优先级--靠左优先,靠右稍后
+sub-auto=fuzzy                # 自动加载同目录下--相似名/同名字幕文件
+audio-file-auto=fuzzy         # 自动加载同目录下--相似名/同名音频文件
+
+keep-open                     # 播放列表结束后暂停
+save-position-on-quit         # 退出时记忆播放状态
+{{ if ne .chezmoi.os "windows" }}
+geometry=-120+120      # 窗口大小和位置，80% 宽度和高度，左上角位置
+{{else}}
+geometry=-80+80       # 窗口大小和位置，80% 宽度和高度，左上角位置
+#profile=gpu-hq                # 使用高质量渲染（如果显卡性能不是太差）
+#icc-profile-auto              # 开启色彩管理（获得更准确的颜色）
+#blend-subtitles=video         # 避免画面模糊字幕高清的情况
+#video-sync=display-resample   # 视频同步
+#interpolation=yes             # 补帧算法是否启用
+#tscale=oversample             # 补帧算法选择
+vo                 = gpu            # <gpu|gpu-next> 视频输出驱动。许多渲染相关的选项也只能在这两项下正常工作。当前版本首选gpu
+# gpu最高普适性和完成度；gpu-next查看此处讨论 https://github.com/hooke007/MPV_lazy/discussions/39
+gpu-context        = d3d11          # <win|d3d11|winvk> 选择图形输出后端，默认 auto（此项的值与 --gpu-api=<opengl|d3d11|vulkan> 相对应）
+# 非特殊情况下Win&NV用户应使用d3d11。vulkan可能的10bit问题 https://github.com/mpv-player/mpv/issues/8554
+fbo-format         = auto           # <最高为rgba32f> 内处理精度。此项通常由 --gpu-api 或 --gpu-context 自动决定正确值，默认 auto 优先选择16位及以上的精度
+d3d11-exclusive-fs = no             # [当 --gpu-api=d3d11 时] 全屏时独占，默认 no
+d3d11-flip         = yes            # （通常在 --d3d11-exclusive-fs=yes 和 --on-top 一起使用时）禁用它可避免MPV全屏时的冻屏问题，默认 yes
+{{end}}
+hwdec              = no             # 指定应使用的硬件视频解码API，默认值 no 为软解。值 auto 或 auto-safe（等效值 yes） 即优先尝试原生硬解，但不支持部分设置/滤镜。
+# 它也可以是多个值组成的优先级列表，例如值 vulkan-copy,nvdec-copy,dxva2-copy 表示依次尝试这些解码模式
+# 更多详情参见Wiki的FAQ页面下的“软硬解的选择”部分
+hwdec-codecs       = "h264,vc1,hevc,vp8,vp9,av1,prores,ffv1"
+# 对限定范围内的编码尝试硬解，特殊值 all 即任意格式都尝试硬解，当前版本默认值 h264,vc1,hevc,vp8,vp9,av1,prores,ffv1
+vd-lavc-dr         = auto           # <默认auto|yes|no> 是否直接解码到显存，个别低端英特尔处理器可能需要显式禁用此功能以大幅提速解码
+
+osc = no
+border = no # Optional, but recommended
+# OSD 字体
+osd-font="Maple Mono NF CN"
+osd-font-size=35
+osd-color="#c0caf5"
+osd-shadow-color="#222436"
+osd-shadow-offset=1
+
+# 字幕样式
+sub-font="Maple Mono NF CN"
+sub-font-size=34
+sub-border-size=2
+sub-shadow-offset=2
+sub-color="#FFFFFF"
+sub-border-color="#000000"
+
+ytdl-raw-options=yes-playlist=
+# 强制使用指定格式播放（自动选画质 + 音频）
+ytdl-format=bestvideo+bestaudio/best
+
+# 使用导出的 cookies.txt 文件
+ytdl-raw-options=cookies=~/OneDrive/PARA/resource/software/mpv/bilibili.com_cookies.txt

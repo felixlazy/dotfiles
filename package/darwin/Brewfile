@@ -54,6 +54,10 @@ brew "lazygit"
 brew "luarocks"
 # Language Server Protocol for Markdown
 brew "marksman"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# Media player based on MPlayer and mplayer2
+brew "mpv"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # No Nonsense Neovim Client in Rust

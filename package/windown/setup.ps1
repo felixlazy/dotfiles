@@ -146,7 +146,6 @@ $packages=@(
   "pandoc",
   "poppler",
   "posh-git",
-  "potplayer",
   "psfzf",
   "psreadline",
   "pwsh",
@@ -166,7 +165,9 @@ $packages=@(
   "gpg",
   "aichat",
   "zebar",
-  "glazewm"
+  "glazewm",
+  "yt-dlp",
+  "mpv"
 )
 install_scoop_packages $packages
 catppuccin
