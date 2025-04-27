@@ -30,6 +30,7 @@ zinit ice as"command" from"gh-r" \
   zinit light starship/starship
 # zinit light jeffreytse/zsh-vi-mode
 zinit light wfxr/forgit
+zinit light hlissner/zsh-autopair
 
 bindkey              '^I' menu-select
 bindkey "$terminfo[kcbt]" menu-select
