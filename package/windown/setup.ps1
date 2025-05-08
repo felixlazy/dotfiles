@@ -167,7 +167,8 @@ $packages=@(
   "zebar",
   "glazewm",
   "yt-dlp",
-  "mpv"
+  "mpv",
+  "autohotkey"
 )
 install_scoop_packages $packages
 catppuccin

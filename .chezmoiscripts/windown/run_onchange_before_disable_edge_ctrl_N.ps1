@@ -20,8 +20,8 @@ if (-not (Test-Path $registryPath))
 # 设置注册表值
 try
 {
-  Set-ItemProperty -Path $registryPath -Name "ConfigureKeyboardShortcuts" -Value '{"disabled": ["new_window"]}'
-  Write-Output "Registry value has been set successfully."
+  Set-ItemProperty -Path $registryPath -Name "ConfigureKeyboardShortcuts" -Value '{"disabled": ["new_window", "history"]}'
+  Write-Output "Registry value has been set successfully for disabling Ctrl+N and Ctrl+H."
 } catch
 {
   Write-Error "Error setting registry value: $_"

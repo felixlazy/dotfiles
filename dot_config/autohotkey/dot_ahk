@@ -1,0 +1,21 @@
+#Requires AutoHotkey v2.0
+#SingleInstance Force
+
+!c::Send("^c")   ; Alt+C → Ctrl+C
+!v::Send("^v")   ; Alt+V → Ctrl+V
+!j::Send("!{Esc}")
+!k::Send("!{Esc}")
+F13::
+{
+    ; 获取屏幕分辨率
+    MonitorWidth := SysGet(0) ; 获取屏幕宽度
+    MonitorHeight := SysGet(1) ; 获取屏幕高度
+
+    ; 计算屏幕中心
+    CenterX := MonitorWidth / 2
+    CenterY := MonitorHeight / 2
+
+    ; 将鼠标移动到屏幕中心
+    MouseMove(CenterX, CenterY)
+    Click
+}
