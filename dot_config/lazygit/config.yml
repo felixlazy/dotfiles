@@ -1,6 +1,15 @@
 gui:
   showFileIcons: true
   nerdFontsVersion: "3"
+  language: en
+  branchColorPatterns:
+    "^feature/": "#4fd6be"
+    "^hotfix/": "#c53b53"
+    "develop": "#fca7ea"
+    "^(master|main)$": "#ffc777"
+  authorColors:
+    "felix": "#4fd6be" # use red for John Smith
+    "*": "#c8d3f5" # use green for Alan Smithee
   theme:
     activeBorderColor:
       - "#ff966c"
@@ -28,7 +37,19 @@ gui:
       - "#c8d3f5"
 os:
   edit: "nvim {{filename}}"
+disableStartupPopups: false
+services: {}
+notARepository: skip
+promptToReturnFromSubprocess: true
 git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never
+customCommands:
+  # retrieved from: https://github.com/jesseduffield/lazygit/wiki/Custom-Commands-Compendium#conventional-commit
+  - key: "b"
+    command: "gh browse"
+    context: "files"
+  - key: "b"
+    command: 'gh browse "{{.SelectedLocalCommit.Sha}}"'
+    context: "commits"
