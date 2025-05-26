@@ -45,5 +45,3 @@ map("n", "<leader>cow", function()
   local command = "!code " .. LazyVim.root()
   vim.api.nvim_command(command)
 end, { desc = "Terminal (file dir)" })
-
-require("utils.gx")

@@ -7,6 +7,9 @@ opt.timeoutlen = 1000
 opt.cursorline = true
 opt.list = false
 opt.modelines = 0
+vim.o.exrc = true
+vim.o.secure = true
+
 if vim.fn.has("win32") == 1 then
   local powershell_options = {
     shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
