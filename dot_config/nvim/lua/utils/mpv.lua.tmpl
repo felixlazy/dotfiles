@@ -1,0 +1,242 @@
+local mpv = {}
+local snacks=require("snacks")
+{{ if ne .chezmoi.os "windows" }}
+local PIPE_PATH = os.getenv("TMPDIR") .. "mpv_socket"
+{{else}}
+local PIPE_PATH = "\\\\.\\pipe\\mpv_socket"
+{{end}}
+-- 工具：格式化时间（秒转 MM:SS）
+local function time_fmt(t)
+  if not t then return "--:--" end
+  local minutes = math.floor(t / 60)
+  local seconds = math.floor(t % 60)
+  return string.format("%02d:%02d", minutes, seconds)
+end
+
+-- 发送任意命令给 mpv
+-- command_array 是 mpv JSON IPC 命令数组，比如 {"set_property", "pause", true}
+function mpv.send_mpv_command(command_array)
+  local handle = io.open(PIPE_PATH, "r+")
+  if not handle then
+    snacks.notifier("Failed to connect to MPV socket: " .. PIPE_PATH, vim.log.levels.ERROR)
+    return nil
+  end
+
+  local request = vim.fn.json_encode({ command = command_array })
+  handle:write(request .. "\n")
+  handle:flush()
+
+  local response = handle:read("*l")
+  handle:close()
+
+  if response then
+    local ok, decoded = pcall(vim.fn.json_decode, response)
+    if ok and decoded and decoded.error == "success" then
+      return decoded
+    else
+      snacks.notifier("MPV returned error: " .. (decoded and decoded.error or "unknown"), vim.log.levels.WARN)
+    end
+  end
+
+  return nil
+end
+
+-- 获取单个属性值，比如 "media-title", "pause"
+function mpv.get_property(prop)
+  local handle = io.open(PIPE_PATH, "r+")
+  if not handle then
+    snacks.notifier("Could not open mpv socket: " .. PIPE_PATH, vim.log.levels.ERROR)
+    return nil
+  end
+
+  local request = vim.fn.json_encode({ command = { "get_property", prop } })
+  handle:write(request .. "\n")
+  handle:flush()
+
+  local response = handle:read("*l")
+  handle:close()
+
+  if not response then
+    snacks.notifier("No response from mpv for '" .. prop .. "'", vim.log.levels.WARN)
+    return nil
+  end
+
+  local ok, decoded = pcall(vim.fn.json_decode, response)
+  if not ok or not decoded or decoded.data == nil then
+    snacks.notifier("Failed to parse response for '" .. prop .. "'", vim.log.levels.WARN)
+    return nil
+  end
+
+  return decoded.data
+end
+
+-- 一次请求多个属性，返回 key-value table
+function mpv.get_properties(props)
+  local handle = io.open(PIPE_PATH, "r+")
+  if not handle then
+    snacks.notifier("Could not open mpv socket: " .. PIPE_PATH, vim.log.levels.ERROR)
+    return nil
+  end
+
+  for _, prop in ipairs(props) do
+    local request = vim.fn.json_encode({ command = { "get_property", prop } })
+    handle:write(request .. "\n")
+  end
+  handle:flush()
+
+  local results = {}
+  for _, prop in ipairs(props) do
+    local line = handle:read("*l")
+    if line then
+      local ok, decoded = pcall(vim.fn.json_decode, line)
+      if ok and decoded and decoded.data ~= nil then
+        results[prop] = decoded.data
+      end
+    end
+  end
+
+  handle:close()
+  return results
+end
+
+-- 获取当前媒体标题（带前缀）
+function mpv.get_mpv_title()
+  local title = mpv.get_property("media-title")
+  if title then
+    return "🎵 " .. title
+  else
+    return ""
+  end
+end
+
+-- 显示当前播放状态和信息
+function mpv.show_title()
+  local info = mpv.get_properties({ "media-title", "time-pos", "duration", "pause" })
+  if not info or not info["media-title"] then
+    snacks.notifier("Unable to retrieve MPV media title", vim.log.levels.ERROR)
+    return
+  end
+
+  local message = string.format(
+    "Now playing: %s\n %s / %s",
+    info["media-title"],
+    time_fmt(info["time-pos"]),
+    time_fmt(info["duration"])
+  )
+
+  snacks.notifier(message, vim.log.levels.INFO)
+end
+
+function mpv.show_volume()
+  local info = mpv.get_properties({ "media-title", "time-pos", "duration", "pause", "volume" })
+  if not info or not info["media-title"] then
+    snacks.notifier("Unable to retrieve MPV media title", vim.log.levels.ERROR)
+    return
+  end
+
+  local message = string.format(
+    "Volume: %d%%",
+    info["volume"] or 0
+  )
+
+  snacks.notifier(message, vim.log.levels.INFO)
+end
+
+function mpv.set_speed(delta)
+  local current = mpv.get_property("speed")
+  if not current then
+    snacks.notifier("Failed to get current speed", vim.log.levels.WARN)
+    return
+  end
+
+  local new_speed = math.max(0.1, current + delta)  -- 限制最低速度为 0.1x
+  mpv.send_mpv_command({ "set_property", "speed", new_speed })
+
+  vim.defer_fn(function()
+    local confirmed = mpv.get_property("speed")
+    if confirmed then
+      snacks.notifier(string.format("Playback speed: %.1fx", confirmed), vim.log.levels.INFO)
+    end
+  end, 100)  -- 延迟一点以确保设置生效
+end
+
+mpv.toggle_pause = function()
+  mpv.send_mpv_command({ "cycle", "pause" })
+end
+
+mpv.next_track = function()
+  mpv.send_mpv_command({ "playlist-next", "force" })
+end
+
+mpv.prev_track = function()
+  mpv.send_mpv_command({ "playlist-prev", "force" })
+end
+
+mpv.volume_up = function()
+  mpv.send_mpv_command({ "add", "volume", 10 })
+end
+
+mpv.volume_down = function()
+  mpv.send_mpv_command({ "add", "volume", -10 })
+end
+
+mpv.seek_forward = function()
+  mpv.send_mpv_command({ "seek", 10, "relative" }) -- 快进 10 秒
+end
+
+mpv.seek_backward = function()
+  mpv.send_mpv_command({ "seek", -10, "relative" }) -- 快退 10 秒
+end
+
+mpv.toggle_playlist = function()
+  mpv.send_mpv_command({ "script-message", "playlistmanager", "show", "playlist" })
+end
+
+vim.keymap.set("n", "<leader>m<", function()
+  mpv.prev_track()
+  vim.defer_fn(function()
+    mpv.show_title()
+  end, 300)  
+end, { desc = "MPV: 上一曲" })
+vim.keymap.set("n", "<leader>m>", function()
+  mpv.next_track()
+  vim.defer_fn(function()
+    mpv.show_title()
+  end, 300)  
+end, { desc = "MPV: 下一曲" })
+vim.keymap.set("n", "<leader>mk", function()
+  mpv.volume_up()
+  vim.defer_fn(mpv.show_volume, 100)  
+end, { desc = "MPV: 音量+", silent = true })
+vim.keymap.set("n", "<leader>mj", function()
+  mpv.volume_down()
+  vim.defer_fn(mpv.show_volume, 100)  
+end, { desc = "MPV: 音量-", silent = true })
+vim.keymap.set("n", "<leader>mi", mpv.show_title, { desc = "MPV: 显示当前歌曲" })
+vim.keymap.set("n", "<leader>ml", function()
+  mpv.seek_forward()
+  vim.defer_fn(function()
+    mpv.show_title()
+  end, 100)
+end, { desc = "MPV: 快进 10 秒", silent = true })
+vim.keymap.set("n", "<leader>mh", function()
+  mpv.seek_backward()
+  vim.defer_fn(mpv.show_title, 100)
+end, { desc = "MPV: 快退 10 秒", silent = true })
+
+vim.keymap.set("n", "<leader>mp", function()
+  mpv.toggle_pause()
+  vim.defer_fn(mpv.show_title, 100)
+end, { desc = "MPV: 播放/暂停切换", silent = true })
+vim.keymap.set("n", "<leader>mo", mpv.toggle_playlist, {
+  desc = "MPV: 显示播放列表",
+})
+
+vim.keymap.set("n", "<leader>m]", function()
+  mpv.set_speed(0.1)
+end, { desc = "MPV: 播放速度 +", silent = true })
+
+vim.keymap.set("n", "<leader>m[", function()
+  mpv.set_speed(-0.1)
+end, { desc = "MPV: 播放速度 -", silent = true })
+return mpv

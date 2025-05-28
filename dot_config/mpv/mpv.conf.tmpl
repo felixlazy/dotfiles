@@ -37,6 +37,7 @@ gpu-context        = d3d11          # <win|d3d11|winvk> 选择图形输出后端
 fbo-format         = auto           # <最高为rgba32f> 内处理精度。此项通常由 --gpu-api 或 --gpu-context 自动决定正确值，默认 auto 优先选择16位及以上的精度
 d3d11-exclusive-fs = no             # [当 --gpu-api=d3d11 时] 全屏时独占，默认 no
 d3d11-flip         = yes            # （通常在 --d3d11-exclusive-fs=yes 和 --on-top 一起使用时）禁用它可避免MPV全屏时的冻屏问题，默认 yes
+input-ipc-server=\\.\pipe\mpv_socket
 {{end}}
 hwdec              = no             # 指定应使用的硬件视频解码API，默认值 no 为软解。值 auto 或 auto-safe（等效值 yes） 即优先尝试原生硬解，但不支持部分设置/滤镜。
 # 它也可以是多个值组成的优先级列表，例如值 vulkan-copy,nvdec-copy,dxva2-copy 表示依次尝试这些解码模式
@@ -68,3 +69,5 @@ ytdl-format=bestvideo+bestaudio/best
 
 # 使用导出的 cookies.txt 文件
 ytdl-raw-options=cookies=~/OneDrive/PARA/resource/software/mpv/bilibili.com_cookies.txt
+
+loop-playlist=yes
