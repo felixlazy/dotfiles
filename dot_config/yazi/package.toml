@@ -1,32 +1,22 @@
 [[plugin.deps]]
-use = "Reledia/glow"
-rev = "2da96e3"
-hash = "2540c4bcb855c39a413d6a0dcea07c06"
-
-[[plugin.deps]]
-use = "Reledia/hexyl"
-rev = "016a09b"
-hash = "57c25c6a44801a08fda2d4b12d855f53"
-
-[[plugin.deps]]
 use = "h-hg/yamb"
 rev = "22af003"
 hash = "7cc42012a7c2099f80064d228feb8d44"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "864a021"
-hash = "979899d87f80e306b5cb091b180a66aa"
+rev = "a54b96a"
+hash = "868daee01a3e6fc21fd049f70e91bc8e"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "864a021"
-hash = "394cc54375e5638237043d23ad34d478"
+rev = "a54b96a"
+hash = "c2c9ad90a84f9d86188a2b8b73a289c1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "864a021"
-hash = "2d3c17251b47e9e59535247ad8013814"
+rev = "a54b96a"
+hash = "52f58299e638a16bc1e10bda1f0b295"
 
 [[plugin.deps]]
 use = "llanosrocas/yaziline"
@@ -40,18 +30,8 @@ hash = "929d8013e8d2722c2c1834140451f407"
 
 [[plugin.deps]]
 use = "MasouShizuka/projects"
-rev = "4f11ecc"
-hash = "caecdb1b9a69c6393af201a100ff958d"
-
-[[plugin.deps]]
-use = "AnirudhG07/plugins-yazi:copy-file-contents"
-rev = "524c52c"
-hash = "6cb8c3d1a25318ecbd7e8036db083f9"
-
-[[plugin.deps]]
-use = "AnirudhG07/custom-shell"
-rev = "6b4550a"
-hash = "4ef246dc2e1aa982c3cde89d9a599d00"
+rev = "96af237"
+hash = "970b611cc3ff2b016c7d2541f348acd5"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
@@ -59,19 +39,14 @@ rev = "7a08a09"
 hash = "5249d156940fa0ee9f00ca148e574eeb"
 
 [[plugin.deps]]
-use = "Ape/open-with-cmd"
-rev = "433cf30"
-hash = "a6d150d153ed3491505b02f4dc174e89"
+use = "yazi-rs/plugins:piper"
+rev = "a54b96a"
+hash = "92af5803ef49cc047234ddf994840b0d"
 
 [[plugin.deps]]
-use = "ndtoan96/ouch"
-rev = "2496cd9"
-hash = "73fc3855e13f8c28faf6114fc5de38ab"
-
-[[plugin.deps]]
-use = "BorhanSaflo/compress"
-rev = "a8608fc"
-hash = "eb788dd077a81f696d03ce4852ec3149"
+use = "yazi-rs/plugins:vcs-files"
+rev = "a54b96a"
+hash = "3fd999fd31dc40789bf47855d8ab72a5"
 
 [flavor]
 deps = []
