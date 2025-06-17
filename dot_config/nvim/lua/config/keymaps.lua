@@ -15,33 +15,21 @@ map("n", "<left>", ":vertical resize+5<CR>", { noremap = true, silent = true })
 map("n", "<right>", ":vertical resize-5<CR>", { noremap = true, silent = true })
 map("t", "<esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
 
-local function getPwd()
-  local str = vim.api.nvim_buf_get_name(0)
-  local index
-  index, _ = string.find(vim.api.nvim_buf_get_name(0), "[^\\]*$")
-  local new_str = string.sub(str, 1, index - 2)
-  return new_str
-end
+local Util = require("utils") -- 改成你的路径
+
 map("n", "<leader>ee", function()
-  local command = "!explorer " .. getPwd()
-  vim.api.nvim_command(command)
-end, { noremap = true, silent = true })
+  Util.open_path(Util.get_buf_dir())
+end, { desc = "Open folder of current file" })
 
 map("n", "<leader>ed", function()
-  local root = "!explorer " .. Util.root()
-  vim.api.nvim_command(root)
-end, { noremap = true, silent = true })
-
-map("n", "<leader>et", function()
-  Util.terminal(nil, { cwd = getPwd() })
-end, { desc = "Terminal (file dir)" })
+  Util.open_path(LazyVim.root()) -- 你已有的项目根目录函数
+end, { desc = "Open project root folder" })
 
 map("n", "<leader>co", function()
-  local command = "!code " .. vim.api.nvim_buf_get_name(0)
-  vim.api.nvim_command(command)
-end, { desc = "Terminal (file dir)" })
+  Util.open_with_vscode(vim.api.nvim_buf_get_name(0))
+end, { desc = "Open current file with VSCode" })
 
 map("n", "<leader>cow", function()
-  local command = "!code " .. LazyVim.root()
-  vim.api.nvim_command(command)
-end, { desc = "Terminal (file dir)" })
+  Util.open_with_vscode(LazyVim.root())
+end, { desc = "Open project in VSCode" })
+Util.cowboy()
