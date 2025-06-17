@@ -37,4 +37,4 @@ end
 pcall(require, "config.env")
 
 require("config.lazy")
-require("utils.config")
+require("utils")
