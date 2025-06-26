@@ -17,6 +17,18 @@ return {
         })
       end,
     },
+    {
+      "folke/which-key.nvim",
+      keys = {
+        {
+          "<space>m<space>",
+          function()
+            require("which-key").show({ keys = "<space>m", loop = true })
+          end,
+          desc = "mpv Hydra Mode (which-key)",
+        },
+      },
+    },
   },
   keys = {
     { "<leader>mi", "<cmd>MpvInfo<cr>", desc = "Show mpv current info" },
