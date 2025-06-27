@@ -51,19 +51,6 @@ return {
       },
     },
     picker = {
-      win = {
-        input = {
-          keys = {
-            ["<a-w>"] = { "toggle_preview", mode = { "i", "n" } },
-            ["<a-p>"] = { "cycle_win", mode = { "i", "n" } },
-          },
-        },
-        preview = {
-          keys = {
-            ["<a-p>"] = "cycle_win",
-          },
-        },
-      },
       previewers = {
         diff = {
           builtin = false, -- use Neovim for previewing diffs (true) or use an external tool (false)

@@ -5,8 +5,8 @@ return {
       "saghen/blink.compat",
       "xzbdmw/colorful-menu.nvim",
     },
-    opts = {
-      cmdline = {
+    opts = function(_, opts)
+      opts.cmdline = {
         enabled = true,
         keymap = {
           preset = "super-tab",
@@ -43,40 +43,39 @@ return {
           -- Displays a preview of the selected item on the current line
           ghost_text = { enabled = true },
         },
-      },
-      completion = {
-        menu = {
-          border = "single",
-          draw = {
-            treesitter = { "lsp" },
-            columns = { { "kind_icon" }, { "label", gap = 1 } },
-            components = {
-              label = {
-                text = function(ctx)
-                  return require("colorful-menu").blink_components_text(ctx)
-                end,
-                highlight = function(ctx)
-                  return require("colorful-menu").blink_components_highlight(ctx)
-                end,
-              },
+      }
+      opts.completion.menu = {
+        border = "single",
+        draw = {
+          treesitter = { "lsp" },
+          columns = { { "kind_icon" }, { "label", gap = 1 } },
+          components = {
+            label = {
+              text = function(ctx)
+                return require("colorful-menu").blink_components_text(ctx)
+              end,
+              highlight = function(ctx)
+                return require("colorful-menu").blink_components_highlight(ctx)
+              end,
             },
           },
-          scrollbar = false,
         },
-        documentation = {
-          window = { border = "single", scrollbar = false },
-          auto_show = true,
-          auto_show_delay_ms = 500,
-        },
-        -- trigger = { show_on_insert_on_trigger_character = true },
-      },
-      signature = {
+        scrollbar = false,
+      }
+      opts.completion.documentation = {
+        window = { border = "single", scrollbar = false },
+        auto_show = true,
+        auto_show_delay_ms = 500,
+      }
+      opts.signature = {
+
         enabled = true,
         window = { border = "single" },
-      },
-      appearance = {
+      }
+      opts.appearance = {
         nerd_font_variant = "normal",
-      },
-    },
+      }
+      return opts
+    end,
   },
 }
