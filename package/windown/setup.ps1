@@ -168,6 +168,7 @@ $packages=@(
   "glazewm",
   "yt-dlp",
   "mpv",
+  "deno",
   "autohotkey"
 )
 install_scoop_packages $packages

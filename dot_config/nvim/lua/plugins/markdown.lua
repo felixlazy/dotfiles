@@ -2,7 +2,6 @@ return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
-      render_modes = true,
       code = {
         sign = true,
         width = "block",
@@ -60,4 +59,22 @@ return {
       { "<leader>pm", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
     },
   },
+
+  {
+    "toppair/peek.nvim",
+    build = "deno task --quiet build:fast",
+    opts = {
+      theme = "dark",
+      app = "browser",
+    },
+    keys = {
+      {
+        "<leader>cp",
+        function()
+          require("peek").open()
+        end,
+      },
+    },
+  },
+  { "markdown-preview.nvim", enabled = false },
 }
