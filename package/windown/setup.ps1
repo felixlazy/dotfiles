@@ -175,6 +175,7 @@ install_scoop_packages $packages
 catppuccin
 pip_install( "compiledb" )
 npm_install( "fanyi" )
+npm_install( "@google/gemini-cli" )
 import_module( "PSCompletions" )
 PSCompletions_config
 Write-Host "安装完成"
