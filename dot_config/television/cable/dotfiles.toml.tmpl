@@ -1,0 +1,13 @@
+[metadata]
+name = "dotfiles"
+description = "A channel to select from your user's dotfiles"
+requirements = ["fd", "bat"]
+
+[source]
+{{ if ne .chezmoi.os "windows" }}
+command = "fd -t f . $HOME/.config"
+{{else}}
+command = "fd -t f . \"$env:HOME\\.config\""
+{{end}}
+[preview]
+command = "bat -n --color=always '{}'"
