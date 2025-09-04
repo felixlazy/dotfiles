@@ -11,12 +11,24 @@ palette = "catppuccin_macchiato"
 error_symbol = "[[✗](red) ❯](peach)"
 vimcmd_symbol = "[[](cyan) ❯](peach)" # For use with zsh-vi-mode
 
+[directory.substitutions]
+Documents = "󰈙"
+Downloads = " "
+Music = " "
+Pictures = " "
+OneDrive = " "
+
+
+[git_branch]
+format = "[$symbol $branch]($style) "
+symbol = " "
+
 [git_status]
 untracked = '[ $count](bold yellow) '
 staged = '[ $count](bold green) '
 stashed = "[ ](cyan) "
 deleted = '[ $count](bold red) '
-modified= '[ $count](bold blue) '
+modified = '[ $count](bold blue) '
 behind = '[](bold purple) '
 ahead = '[](bold purple) '
 format = '([$all_status$ahead_behind]($style))'
