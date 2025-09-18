@@ -169,6 +169,7 @@ $packages=@(
   "yt-dlp",
   "mpv",
   "deno",
+  "tree-sitter",
   "autohotkey"
 )
 install_scoop_packages $packages
