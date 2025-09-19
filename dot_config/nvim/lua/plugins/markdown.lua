@@ -3,14 +3,53 @@ return {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
       code = {
-        sign = true,
+        -- general
         width = "block",
+        min_width = 80,
+        -- borders
+        border = "thin",
+        left_pad = 1,
         right_pad = 1,
+        -- language info
+        position = "left",
+        language_icon = true,
+        language_name = true,
+        -- avoid making headings ugly
+        highlight_inline = "RenderMarkdownCodeInfo",
       },
       heading = {
-        sign = true,
-        icons = { "󰎥  ", "󰎨  ", "󰎫  ", "󰎲  ", "󰎯  ", "󰎴  " },
-        position = "inline",
+        icons = { " 󰼏 ", " 󰎨 ", " 󰼑 ", " 󰎲 ", " 󰼓 ", " 󰎴 " },
+        border = true,
+        render_modes = true, -- keep rendering while inserting
+      },
+
+      pipe_table = {
+        alignment_indicator = "─",
+        border = { "╭", "┬", "╮", "├", "┼", "┤", "╰", "┴", "╯", "│", "─" },
+      },
+      link = {
+        wiki = { icon = " ", highlight = "RenderMarkdownWikiLink", scope_highlight = "RenderMarkdownWikiLink" },
+        image = " ",
+        custom = {
+          github = { pattern = "github", icon = " " },
+          gitlab = { pattern = "gitlab", icon = "󰮠 " },
+          youtube = { pattern = "youtube", icon = " " },
+          cern = { pattern = "cern.ch", icon = " " },
+        },
+      },
+      anti_conceal = {
+        disabled_modes = { "n" },
+        ignore = {
+          bullet = true, -- render bullet in insert mode
+          head_border = true,
+          head_background = true,
+        },
+      },
+      -- https://github.com/MeanderingProgrammer/render-markdown.nvim/issues/509
+      win_options = { concealcursor = { rendered = "nvc" } },
+      completions = {
+        blink = { enabled = true },
+        lsp = { enabled = true },
       },
       checkbox = {
         enabled = true,
