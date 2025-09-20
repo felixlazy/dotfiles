@@ -1,7 +1,9 @@
 font-family = Maple Mono NF CN
 font-size = 16
 theme=tokyonight_moon
-# custom-shader = ./ghostty-shaders/bettercrt.glsl
+custom-shader =./ghostty-shaders/cursor_blaze.glsl
+copy-on-select = clipboard
+macos-option-as-alt = right
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
@@ -11,17 +13,18 @@ mouse-hide-while-typing = true
 
 # Theme
 cursor-invert-fg-bg = true
+window-theme = ghostty
 
 # keybindings
-keybind = clear
-keybind = super+shift+t=new_tab
-keybind = super+shift+h=previous_tab
-keybind = super+shift+l=next_tab
-keybind = super+shift+enter=new_split:auto
-keybind = super+shift+i=inspector:toggle
-keybind = super+shift+m=toggle_split_zoom
-keybind = super+shift+r=reload_config
-keybind = super+shift+w=close_surface
+keybind = alt+shift+t=new_tab
+keybind = alt+shift+h=previous_tab
+keybind = alt+shift+l=next_tab
+keybind = alt+shift+enter=new_split:auto
+keybind = alt+shift+i=inspector:toggle
+keybind = alt+shift+m=toggle_split_zoom
+keybind = alt+shift+r=reload_config
+keybind = alt+shift+w=close_surface
+keybind = ctrl+shift+w=close_surface
 
 # Window
 gtk-single-instance = true
@@ -32,3 +35,5 @@ window-padding-balance = true
 #window-decoration = false 
 macos-titlebar-style = hidden
 # fullscreen = true
+copy-on-select = clipboard
+app-notifications = no-clipboard-copy
