@@ -4,49 +4,39 @@ rev = "22af003"
 hash = "7cc42012a7c2099f80064d228feb8d44"
 
 [[plugin.deps]]
-use = "yazi-rs/plugins:smart-filter"
-rev = "a54b96a"
-hash = "868daee01a3e6fc21fd049f70e91bc8e"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "a54b96a"
-hash = "c2c9ad90a84f9d86188a2b8b73a289c1"
+rev = "d1c8baa"
+hash = "63b6c222bf2103b3023389dde5e2ecfe"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "a54b96a"
-hash = "52f58299e638a16bc1e10bda1f0b295"
+rev = "d1c8baa"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
 [[plugin.deps]]
 use = "llanosrocas/yaziline"
 rev = "1342efe"
-hash = "33ec7d4f35d2779afccf709a50bc78c0"
+hash = "a84a339953a568fee1d8beb63e6dca73"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "6fde3b2"
-hash = "929d8013e8d2722c2c1834140451f407"
+rev = "a63550b"
+hash = "c2021386289a0cbb3e152a052f67c177"
 
 [[plugin.deps]]
 use = "MasouShizuka/projects"
-rev = "96af237"
-hash = "970b611cc3ff2b016c7d2541f348acd5"
+rev = "a5e33db"
+hash = "3de26efded35814ba3e55e28f1c389a4"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
-rev = "7a08a09"
-hash = "5249d156940fa0ee9f00ca148e574eeb"
+rev = "8f37dc5"
+hash = "ee71543790f0ce3951161045a3787abd"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "a54b96a"
-hash = "92af5803ef49cc047234ddf994840b0d"
-
-[[plugin.deps]]
-use = "yazi-rs/plugins:vcs-files"
-rev = "a54b96a"
-hash = "3fd999fd31dc40789bf47855d8ab72a5"
+rev = "d1c8baa"
+hash = "a20327710c3a8d37ee0972128dcb6a31"
 
 [flavor]
 deps = []

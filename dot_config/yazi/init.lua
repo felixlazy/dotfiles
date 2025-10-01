@@ -1,3 +1,11 @@
+th.git = th.git or {}
+th.git.added = ui.Style():fg("#a6e3a1")
+th.git.untracked = ui.Style():fg("gray")
+th.git.modified = ui.Style():fg("#f9e2af")
+th.git.added_sign = ""
+th.git.untracked_sign = ""
+th.git.modified_sign = ""
+th.git.deleted_sign = ""
 require("git"):setup()
 require("yamb"):setup({
 	-- Optional, recieve notification everytime you jump.
@@ -11,7 +19,6 @@ require("yamb"):setup({
 })
 require("starship"):setup()
 require("yaziline"):setup({
-	separator_style = "curvy",
 	select_symbol = "",
 	yank_symbol = "󰆐",
 	filename_max_length = 24, -- trim when filename > 24

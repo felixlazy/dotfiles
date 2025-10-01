@@ -2,96 +2,90 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 [[mgr.prepend_keymap]]
-on   = "F"
-run  = "plugin smart-filter"
+on = "F"
+run = "plugin smart-filter"
 desc = "Smart filter"
 [[mgr.prepend_keymap]]
-on = [ "u", "a" ]
+on = ["u", "a"]
 run = "plugin yamb save"
 desc = "Add bookmark"
 
 [[mgr.prepend_keymap]]
-on = [ "u", "g" ]
+on = ["u", "g"]
 run = "plugin yamb jump_by_key"
 desc = "Jump bookmark by key"
 
 [[mgr.prepend_keymap]]
-on = [ "u", "G" ]
+on = ["u", "G"]
 run = "plugin yamb jump_by_fzf"
 desc = "Jump bookmark by fzf"
 
 [[mgr.prepend_keymap]]
-on = [ "u", "d" ]
+on = ["u", "d"]
 run = "plugin yamb delete_by_key"
 desc = "Delete bookmark by key"
 
 [[mgr.prepend_keymap]]
-on = [ "u", "D" ]
+on = ["u", "D"]
 run = "plugin yamb delete_by_fzf"
 desc = "Delete bookmark by fzf"
 
 [[mgr.prepend_keymap]]
-on = [ "u", "A" ]
+on = ["u", "A"]
 run = "plugin yamb delete_all"
 desc = "Delete all bookmarks"
 
 [[mgr.prepend_keymap]]
-on = [ "u", "r" ]
+on = ["u", "r"]
 run = "plugin yamb rename_by_key"
 desc = "Rename bookmark by key"
 
 [[mgr.prepend_keymap]]
-on = [ "u", "R" ]
+on = ["u", "R"]
 run = "plugin yamb rename_by_fzf"
 desc = "Rename bookmark by fzf"
 
 [[mgr.prepend_keymap]]
-on   = "l"
-run  = "plugin smart-enter"
+on = "l"
+run = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
 
 [[mgr.prepend_keymap]]
-on = [ "P", "s" ]
+on = ["P", "s"]
 run = "plugin projects save"
 desc = "Save current project"
 
 [[mgr.prepend_keymap]]
-on = [ "P", "l" ]
+on = ["P", "l"]
 run = "plugin projects load"
 desc = "Load project"
 
 [[mgr.prepend_keymap]]
-on = [ "P", "P" ]
+on = ["P", "P"]
 run = "plugin projects load_last"
 desc = "Load last project"
 
 [[mgr.prepend_keymap]]
-on = [ "P", "d" ]
+on = ["P", "d"]
 run = "plugin projects delete"
 desc = "Delete project"
 
 [[mgr.prepend_keymap]]
-on = [ "P", "D" ]
+on = ["P", "D"]
 run = "plugin projects delete_all"
 desc = "Delete all projects"
 
 [[mgr.prepend_keymap]]
-on = [ "P", "m" ]
+on = ["P", "m"]
 run = "plugin projects 'merge current'"
 desc = "Merge current tab to other projects"
 
 [[mgr.prepend_keymap]]
-on = [ "P", "M" ]
+on = ["P", "M"]
 run = "plugin projects 'merge all'"
 desc = "Merge current project to other projects"
 
 [[mgr.prepend_keymap]]
-on   = [ "g", "c" ]
-run  = "plugin vcs-files"
-desc = "Show Git file changes"
-
-[[mgr.prepend_keymap]]
-on   = [ "g", "i" ]
-run  = "plugin lazygit"
+on = ["g", "i"]
+run = "plugin lazygit"
 desc = "run lazygit"
-
