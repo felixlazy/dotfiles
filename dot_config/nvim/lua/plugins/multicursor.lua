@@ -3,7 +3,6 @@ return {
   {
     "jake-stewart/multicursor.nvim",
     keys = { "<C-n>", "<C-p>" },
-    branch = "1.0",
     config = function()
       local mc = require("multicursor-nvim")
       mc.setup()

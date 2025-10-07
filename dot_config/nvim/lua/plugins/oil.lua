@@ -36,5 +36,6 @@ return {
   keys = {
     { "<space>oil", "<CMD>Oil<CR>", { desc = "Open parent directory" } },
   },
+  cmd = { "Oil" },
   -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
 }

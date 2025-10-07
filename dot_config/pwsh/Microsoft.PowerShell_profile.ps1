@@ -21,6 +21,7 @@ $Env:BAT_CONFIG_DIR=$Env:home+"\.config\bat"
 $Env:VISUAL = "nvim"
 $Env:MPV_HOME=$Env:home+"\.config\mpv"
 $Env:NPM_CONFIG_USERCONFIG =$Env:home+"\.config\npm\.npmrc"
+$Env:GEMINI_CONFIG_DIR = $Env:home+"\.config\gemini" 
 
 
 #设置代理
