@@ -4,20 +4,16 @@ tap "homebrew/bundle"
 tap "koekeishiya/formulae"
 tap "laishulu/homebrew"
 tap "nikitabobko/tap"
-# All-in-one AI-Powered CLI Chat & Copilot
-brew "aichat"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Yet another cross-platform graphical process/system monitor
 brew "bottom"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
+# Secure runtime for JavaScript and TypeScript
+brew "deno"
 # Modern, maintained replacement for ls
 brew "eza"
-# Platform built on V8 to build network applications
-brew "node"
-# Chinese and English translate tool in your command-line
-brew "fanyi"
 # Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
@@ -30,6 +26,10 @@ brew "fisher"
 brew "fx"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Platform built on V8 to build network applications
+brew "node"
+# Interact with Google Gemini AI models from the command-line
+brew "gemini-cli"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
@@ -42,6 +42,8 @@ brew "git-flow"
 brew "glow"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# Manage your GnuPG keys with ease!
+brew "gpg-tui"
 # Command-line hex viewer
 brew "hexyl"
 # Interpreted, interactive, object-oriented programming language
@@ -54,6 +56,8 @@ brew "lazygit"
 brew "luarocks"
 # Language Server Protocol for Markdown
 brew "marksman"
+# Unified display of technical and tag data for audio/video
+brew "media-info"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
 # Media player based on MPlayer and mplayer2
@@ -68,6 +72,8 @@ brew "onefetch"
 brew "pipx"
 # Paste PNG into files
 brew "pngpaste"
+# Modern replacement for ps written in Rust
+brew "procs"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Safe, concurrent, practical language
@@ -88,7 +94,7 @@ brew "yq"
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
-# MacOS Input Source Manager
+# macOS Input Source Manager
 brew "laishulu/homebrew/macism"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "aerospace"

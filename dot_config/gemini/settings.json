@@ -1,0 +1,39 @@
+{
+  "general": {
+    "vimMode": false,
+    "preferredEditor": "neovim"
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "ui": {
+    "customThemes": {
+      "tokyonight": {
+        "name": "tokyonight",
+        "type": "custom",
+        "Background": "#222436",
+        "Foreground": "#c8d3f5",
+        "LightBlue": "#89ddff",
+        "AccentBlue": "#82aaff",
+        "AccentPurple": "#fca7ea",
+        "AccentCyan": "#86e1fc",
+        "AccentGreen": "#c3e88d",
+        "AccentYellow": "#ffc777",
+        "AccentRed": "#ff757f",
+        "Comment": "#636da6",
+        "Gray": "#545c7e",
+        "DiffAdded": "#273849",
+        "DiffRemoved": "#3a273a",
+        "DiffModified": "#7ca1f2",
+        "GradientColors": ["#82aaff", "#fca7ea", "#ff757f"]
+      }
+    },
+    "theme": "tokyonight"
+  },
+  "context": {
+    "fileName": ["GEMINI.md"],
+    "includeDirectories": ["~/.config/gemini/"]
+  }
+}
