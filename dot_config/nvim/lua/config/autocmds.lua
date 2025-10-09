@@ -38,3 +38,12 @@ vim.api.nvim_create_autocmd("ModeChanged", {
 if vim.fn.has("win32") == 1 then
   require("utils.win_ime_toggle")
 end
+
+-- rust
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "rust",
+  callback = function()
+    local opts = { noremap = true, silent = true, buffer = true }
+    vim.keymap.set("n", "<leader>em", "<cmd>RustLsp expandMacro<CR>", opts)
+  end,
+})
