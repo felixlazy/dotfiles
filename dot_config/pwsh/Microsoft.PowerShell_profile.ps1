@@ -29,7 +29,7 @@ $Env:http_proxy="http://127.0.0.1:7890"
 $Env:https_proxy="http://127.0.0.1:7890"
 
 . "$Env:XDG_CONFIG_HOME\pwsh\PSReadLine.ps1"
-. "$Env:XDG_CONFIG_HOME\fzf\PSFzf.ps1"
+. "$Env:XDG_CONFIG_HOME\fzf\Fzf.ps1"
 . "$Env:XDG_CONFIG_HOME\pwsh\Eza.ps1"
 . "$Env:XDG_CONFIG_HOME\pwsh\Bind.ps1"
 . "$Env:XDG_CONFIG_HOME\pwsh\Onefetch.ps1"
