@@ -47,3 +47,5 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<leader>em", "<cmd>RustLsp expandMacro<CR>", opts)
   end,
 })
+
+require("utils.toggle_number")
