@@ -1,6 +1,6 @@
 export PATH="/opt/homebrew/bin:$PATH"
 #yazi
-function y() {
+function y {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
   if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
@@ -8,24 +8,6 @@ function y() {
   fi
   rm -f -- "$tmp"
 }
-
-# git repository greeter
-last_repository=
-check_directory_for_new_repository() {
-  current_repository=$(git rev-parse --show-toplevel 2> /dev/null)
-
-  if [ "$current_repository" ] && \
-    [ "$current_repository" != "$last_repository" ]; then
-      onefetch
-  fi
-  last_repository=$current_repository
-}
-cd() {
-  builtin cd "$@"
-  check_directory_for_new_repository
-}
-check_directory_for_new_repository
-
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export EZA_CONFIG_DIR="$HOME/.config/eza"
@@ -48,6 +30,8 @@ export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_pr
 
 # fzf
 source ~/.config/fzf/fzf.zsh
+source <(fzf --zsh)
+
 # lazygit
 alias lg="lazygit"
 alias lgf="lazygit -f"
@@ -56,6 +40,27 @@ alias mpvc='mpv --autofit=80%x80% --geometry=50%:50%'
 
 source ~/.config/zsh/zinit.zsh
 source ~/.config/zsh/television.zsh
-source ~/.fzf.zsh
 source ~/.config/zsh/env.zsh
+
+# --- History ---
+# 历史记录文件的路径
+HISTFILE=~/.zsh_history
+# 内存中保留的历史记录数量
+HISTSIZE=10000
+# 保存到文件中的历史记录数量
+SAVEHIST=10000
+# 立即将命令附加到历史记录文件，而不是等待 shell 退出
+setopt APPEND_HISTORY
+# 在多个终端会话之间共享历史记录
+setopt SHARE_HISTORY
+# 如果在新会话中输入一个命令，它会立即被添加到历史记录文件中
+setopt INC_APPEND_HISTORY
+# 删除历史记录中的重复命令
+setopt HIST_IGNORE_DUPS
+# 删除历史记录中连续的重复命令
+setopt HIST_IGNORE_ALL_DUPS
+# 在历史记录中搜索时，忽略空格开头的命令
+setopt HIST_IGNORE_SPACE
+# 在历史记录中记录命令的执行时间
+setopt EXTENDED_HISTORY
 fastfetch
