@@ -25,6 +25,10 @@
 .config/aerospace/**
 {{ end }}
 
+{{ if ne .chezmoi.os "linux" }}
+.config/niri/
+{{ end }}
+
 README.md
 package/
 .config/gpg/public_key.asc
