@@ -1,0 +1,14 @@
+{
+  "exampleEmojiPlugin": {
+    "enabled": true
+  },
+  "optimusPlugin": {
+    "enabled": true
+  },
+  "niriWindows": {
+    "enabled": true
+  },
+  "dankPomodoroTimer": {
+    "enabled": true
+  }
+}
