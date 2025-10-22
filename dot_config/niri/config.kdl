@@ -42,6 +42,11 @@ output "eDP-2" {
     transform "normal"
 }
 
+gestures {
+    hot-corners {
+        off
+    }
+}
 
 
 // ────────────── Startup Applications ──────────────
@@ -121,40 +126,63 @@ overview {
         color "#0007"
     }
 }
+
 // ────────────── Window Rules ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 
-    window-rule {
-        match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-        open-floating true // Always float Firefox PiP windows
-    }
-
-    window-rule {
-        geometry-corner-radius 20 // Set every window radius to 20
-        clip-to-geometry true
-    }
+window-rule {
+    geometry-corner-radius 20 // Set every window radius to 20
+    clip-to-geometry true
+}
 
 window-rule{
-    match app-id="clash-verge"
-    open-floating true
-    default-column-width { proportion 0.6; }
-    default-window-height { proportion 0.9; }
+    match app-id="zen-browser"
+    match app-id="neovide"
+    open-maximized true
 }
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id="zen" title="^Picture-in-Picture$"
+    match app-id="mpv" 
+    open-floating true
+    open-focused false
+    default-floating-position x=32 y=32 relative-to="bottom-right"
+    default-column-width { proportion 0.3; }
+    default-window-height { proportion 0.3; }
+}
+
+// Dialogs window rule
+window-rule{
+    match app-id="Hello"
+    open-floating true
+    default-column-width { proportion 0.45; }
+    default-window-height { proportion 0.45; }
+}
+
+// Dialogs window rule
+window-rule{
+    match app-id="steam"
+    open-maximized true
+}
+
 // ────────────── Environment Variables ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#environment
 
-    environment {
-        DISPLAY ":1"
-        ELECTRON_OZONE_PLATFORM_HINT "auto"
-        QT_QPA_PLATFORM "wayland"
-        QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-        XDG_SESSION_TYPE "wayland"
-        XDG_CURRENT_DESKTOP "niri"
-    }
+environment {
+    DISPLAY ":1"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    QT_QPA_PLATFORM "wayland"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    QT_QPA_PLATFORMTHEME "gtk3"
+    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+    XDG_SESSION_TYPE "wayland"
+    XDG_CURRENT_DESKTOP "niri"
+}
 
-    hotkey-overlay {
-        skip-at-startup
-    }
+hotkey-overlay {
+    skip-at-startup
+}
 
 // 忽略软件自带的装饰(例如标题栏)
 prefer-no-csd
@@ -173,6 +201,7 @@ binds {
     MOD+Space                           { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
     MOD+X                               { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
     MOD+E                               { spawn "nautilus" "--new-window"; }
+    Mod+P                               { spawn "dms" "ipc" "call" "processlist" "toggle"; }
 
     XF86Launch1                         { spawn "rog-control-center"; }
     XF86Launch4                         { spawn "asusctl" "profile" "--next"; }
@@ -185,11 +214,11 @@ binds {
     XF86AudioRaiseVolume  allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "3"; }
     XF86KbdBrightnessDown allow-when-locked=true { spawn "asusctl" "--prev-kbd-bright"; }
     XF86KbdBrightnessUp   allow-when-locked=true { spawn "asusctl" "--next-kbd-bright"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "5" "amdgpu_bl1"; }
-    XF86MonBrightnessUp   allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5" "amdgpu_bl1"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
 
     // ─── Window Movement and Focus ───
-    MOD+Q                               { close-window; }
+    MOD+Q repeat=false                  { close-window; }
     MOD+O repeat=false                  { toggle-overview; }
 
     MOD+H                               { focus-column-left; } // 聚焦左边的列
