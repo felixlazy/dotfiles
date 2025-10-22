@@ -1,0 +1,118 @@
+status is-interactive; or exit
+set fish_greeting
+# yazi
+function y
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file="$tmp"
+    if read -z cwd <"$tmp"; and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        builtin cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
+end
+# zoxide
+zoxide init fish | source
+abbr fz __zoxide_zi
+
+# starship
+starship init fish | source
+
+# Cursor styles
+set -gx fish_vi_force_cursor 1
+set -gx fish_cursor_default block
+set -gx fish_cursor_insert line blink
+set -gx fish_cursor_visual block
+set -gx fish_cursor_replace_one underscore
+
+# Path
+set -e fish_user_paths
+# fish_add_path /bin
+fish_add_path ~/.cargo/bin
+fish_add_path ~/.bun/bin
+fish_add_path ~/.local/bin
+fish_add_path ~/.luarocks/bin
+fish_add_path ~/Library/Python/3.{8,9}/bin
+fish_add_path /usr/local/opt/sqlite/bin
+fish_add_path /usr/local/sbin
+fish_add_path /var/lib/flatpak/exports/bin/
+fish_add_path /opt/homebrew/bin
+
+# Fish
+set fish_emoji_width 2
+alias ssh "TERM=xterm-256color command ssh"
+alias mosh "TERM=xterm-256color command mosh"
+
+# Tmux
+abbr tc 'tmux attach'
+abbr ta 'tmux attach -t'
+abbr tad 'tmux attach -d -t'
+abbr ts 'tmux new -s'
+abbr tl 'tmux ls'
+abbr tk 'tmux kill-session -t'
+abbr mux tmuxinator
+
+# Files & Directories
+abbr mv "mv -iv"
+abbr cp "cp -riv"
+abbr mkdir "mkdir -vp"
+alias ls="eza --color=auto --icons=auto --group-directories-first"
+alias la 'eza --color=auto --icons=auto --group-directories-first --all --git'
+alias ll 'eza --color=auto --icons=auto --group-directories-first --all --git --long'
+abbr b btm
+
+set -gx EDITOR (which nvim)
+set -gx VISUAL $EDITOR
+set -gx SUDO_EDITOR $EDITOR
+
+#fzf 
+alias glo _fzf_search_git_log
+alias gls _fzf_search_git_status
+alias gld _fzf_report_diff_type
+alias fh _fzf_search_history
+
+# neovide
+alias neovide "neovide --fork"
+
+#lazygit 
+alias lazygit "TERM=xterm-256color command lazygit"
+abbr lg lazygit
+
+# systemctl
+abbr s systemctl
+abbr scu "systemctl --user"
+abbr ss "command systemctl status"
+abbr sl "systemctl --type service --state running"
+abbr se "sudo systemctl enable --now"
+abbr sd "sudo systemctl disable --now"
+abbr sr "sudo systemctl restart"
+abbr so "sudo systemctl stop"
+abbr sa "sudo systemctl start"
+abbr slu "systemctl --user --type service --state running"
+abbr seu "systemctl --user enable --now"
+abbr sdu "systemctl --user disable --now"
+abbr sru "systemctl --user restart"
+abbr sou "systemctl --user stop"
+abbr sau "systemctl --user start"
+abbr sf "systemctl --failed --all"
+
+# paru
+abbr p paru
+abbr pai "paru -S"
+abbr par "paru -Rns"
+abbr pas "paru -Ss"
+abbr pal "paru -Q"
+abbr paf "paru -Ql"
+abbr pao "paru -Qo"
+
+# 设置代理
+set -x https_proxy http://127.0.0.1:7890
+set -x http_proxy http://127.0.0.1:7890
+set -x all_proxy socks5://127.0.0.1:7890
+
+set -x XDG_CONFIG_HOME "$HOME/.config"
+set -x EZA_CONFIG_DIR "$HOME/.config/eza"
+set -x EDITOR nvim
+set -x LANG en_US.UTF-8
+set -x BAT_CONFIG_PATH "$HOME/.config/bat/config"
+set -x BAT_CONFIG_DIR "$HOME/.config/bat"
+
+fastfetch
