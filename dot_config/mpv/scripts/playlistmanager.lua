@@ -13,15 +13,15 @@ local settings = {
 	key_peek_at_playlist = "",
 
 	-- dynamic keys
-	key_moveup = "ctrl+p",
-	key_movedown = "ctrl+n",
-	key_movepageup = "PGUP",
-	key_movepagedown = "PGDWN",
+	key_moveup = "k",
+	key_movedown = "j",
+	key_movepageup = "c-b",
+	key_movepagedown = "c-f",
 	key_movebegin = "HOME",
 	key_moveend = "END",
 	key_selectfile = "RIGHT LEFT",
 	key_unselectfile = "",
-	key_playfile = "ENTER",
+	key_playfile = "ENTER o",
 	key_removefile = "BS",
 	key_closeplaylist = "ESC SHIFT+ENTER",
 
@@ -138,13 +138,13 @@ local settings = {
 	reset_cursor_on_open = true,
 
 	--prefer to display titles for following files: "all", "url", "none". Sorting still uses filename.
-	prefer_titles = "url",
+	prefer_titles = "all",
 
 	--youtube-dl executable for title resolving if enabled, probably "youtube-dl" or "yt-dlp", can be absolute path
 	youtube_dl_executable = "yt-dlp",
 
 	--call youtube-dl to resolve the titles of urls in the playlist
-	resolve_url_titles = false,
+	resolve_url_titles = true,
 
 	--call ffprobe to resolve the titles of local files in the playlist (if they exist in the metadata)
 	resolve_local_titles = false,
