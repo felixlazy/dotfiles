@@ -1,7 +1,7 @@
 {
-	"attributes": {
-		"prefix": "attributes",
-		"body": ["attributes(${1})"],
-		"description": "attributes(…)"
-	}
+  "attributes": {
+    "prefix": "attributes",
+    "body": ["attributes(${1})"],
+    "description": "attributes(…)"
+  }
 }
