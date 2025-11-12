@@ -93,5 +93,23 @@ return {
       end,
       desc = "btm",
     },
+    {
+      "<leader>obf",
+      function()
+        Snacks.picker.files({
+          cwd = "~/OneDrive/PARA/",
+        })
+      end,
+      desc = "obf",
+    },
+    {
+      "<leader>obg",
+      function()
+        Snacks.picker.grep({
+          cwd = "~/OneDrive/PARA/",
+        })
+      end,
+      desc = "ObsidianGrep",
+    },
   },
 }

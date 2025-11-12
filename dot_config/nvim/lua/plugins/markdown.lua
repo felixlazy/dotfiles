@@ -20,7 +20,6 @@ return {
       heading = {
         icons = { " 󰼏 ", " 󰎨 ", " 󰼑 ", " 󰎲 ", " 󰼓 ", " 󰎴 " },
         border = true,
-        render_modes = true, -- keep rendering while inserting
       },
 
       pipe_table = {
@@ -28,7 +27,7 @@ return {
         border = { "╭", "┬", "╮", "├", "┼", "┤", "╰", "┴", "╯", "│", "─" },
       },
       link = {
-        wiki = { icon = " ", highlight = "RenderMarkdownWikiLink", scope_highlight = "RenderMarkdownWikiLink" },
+        wiki = { icon = "", highlight = "RenderMarkdownWikiLink", scope_highlight = "RenderMarkdownWikiLink" },
         image = " ",
         custom = {
           github = { pattern = "github", icon = " " },
@@ -38,7 +37,6 @@ return {
         },
       },
       anti_conceal = {
-        disabled_modes = { "n" },
         ignore = {
           bullet = true, -- render bullet in insert mode
           head_border = true,
