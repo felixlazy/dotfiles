@@ -68,7 +68,9 @@ alias glo _fzf_search_git_log
 alias gls _fzf_search_git_status
 alias gld _fzf_report_diff_type
 alias fh _fzf_search_history
-
+# make
+#
+abbr make 'make -j$(nproc)'
 # neovide
 alias neovide "neovide --fork"
 
