@@ -73,7 +73,7 @@ alias lazygit "TERM=xterm-256color command lazygit"
 abbr lg lazygit
 
 
-{{ if ne .chezmoi.os "darwin" }}
+{{ if ne .chezmoi.os "linux" }}
 # brew
 abbr p 'brew'
 abbr pai 'brew install'
@@ -93,9 +93,7 @@ abbr se "brew services start"
 abbr sd "brew services stop"
    
 fish_add_path /opt/homebrew/bin
-{{ end }}
-
-{{ if ne .chezmoi.os "linux" }}
+{{ else }}
 # paru
 abbr p paru
 abbr pai "paru -S"

@@ -11,7 +11,6 @@ function tve
 Set-alias lg lazygit
 Set-alias 'sudo' 'gsudo'
 Set-alias 'fz' '__zoxide_zi'
-Set-Alias make 'make -j$(nproc)'
 
 function p
 {
@@ -66,6 +65,11 @@ function pao
     [string[]]$Command
   )
   scoop which $Command
+}
+
+function pau
+{
+  scoop update $args
 }
 
 # yzai
