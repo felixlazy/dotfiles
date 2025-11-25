@@ -11,6 +11,62 @@ function tve
 Set-alias lg lazygit
 Set-alias 'sudo' 'gsudo'
 Set-alias 'fz' '__zoxide_zi'
+Set-Alias make 'make -j$(nproc)'
+
+function p
+{
+  scoop $args
+}
+   
+function pai
+{
+  param(
+    [Parameter(Mandatory=$true, ValueFromRemainingArguments=$true)]
+    [string[]]$Packages
+  )
+  scoop install $Packages
+}
+   
+function par
+{
+  param(
+    [Parameter(Mandatory=$true, ValueFromRemainingArguments=$true)]
+    [string[]]$Packages
+  )
+  scoop uninstall $Packages
+}
+   
+function pas
+{
+  param(
+    [Parameter(Mandatory=$true, ValueFromRemainingArguments=$true)]
+    [string[]]$Query
+  )
+  scoop search $Query
+}
+   
+function pal
+{
+  scoop list $args
+}
+   
+function paf
+{
+  param(
+    [Parameter(Mandatory=$true, ValueFromRemainingArguments=$true)]
+    [string[]]$Package
+  )
+  scoop info $Package
+}
+   
+function pao
+{
+  param(
+    [Parameter(Mandatory=$true, ValueFromRemainingArguments=$true)]
+    [string[]]$Command
+  )
+  scoop which $Command
+}
 
 # yzai
 function y

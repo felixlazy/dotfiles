@@ -34,7 +34,6 @@ fish_add_path ~/Library/Python/3.{8,9}/bin
 fish_add_path /usr/local/opt/sqlite/bin
 fish_add_path /usr/local/sbin
 fish_add_path /var/lib/flatpak/exports/bin/
-fish_add_path /opt/homebrew/bin
 
 # Fish
 set fish_emoji_width 2
@@ -68,15 +67,44 @@ alias glo _fzf_search_git_log
 alias gls _fzf_search_git_status
 alias gld _fzf_report_diff_type
 alias fh _fzf_search_history
-# make
-#
-abbr make 'make -j$(nproc)'
-# neovide
-alias neovide "neovide --fork"
 
 #lazygit 
 alias lazygit "TERM=xterm-256color command lazygit"
 abbr lg lazygit
+
+
+{{ if ne .chezmoi.os "darwin" }}
+# brew
+abbr p 'brew'
+abbr pai 'brew install'
+abbr par 'brew uninstall'
+abbr pas 'brew search'
+abbr pal 'brew list'
+abbr paf 'brew list'
+abbr pau 'brew upgrade'
+
+abbr s "brew services list"
+abbr sl "brew services list | grep started"
+abbr sf "brew services list | grep error"
+abbr sa "brew services start"
+abbr so "brew services stop"
+abbr sr "brew services restart"
+abbr se "brew services start"
+abbr sd "brew services stop"
+   
+fish_add_path /opt/homebrew/bin
+{{ end }}
+
+{{ if ne .chezmoi.os "linux" }}
+# paru
+abbr p paru
+abbr pai "paru -S"
+abbr par "paru -Rns"
+abbr pas "paru -Ss"
+abbr pal "paru -Q"
+abbr paf "paru -Ql"
+abbr pao "paru -Qo"
+abbr pau "paru -Syu"
 
 # systemctl
 abbr s systemctl
@@ -95,15 +123,12 @@ abbr sru "systemctl --user restart"
 abbr sou "systemctl --user stop"
 abbr sau "systemctl --user start"
 abbr sf "systemctl --failed --all"
-
-# paru
-abbr p paru
-abbr pai "paru -S"
-abbr par "paru -Rns"
-abbr pas "paru -Ss"
-abbr pal "paru -Q"
-abbr paf "paru -Ql"
-abbr pao "paru -Qo"
+# make
+#
+abbr make 'make -j$(nproc)'
+# neovide
+alias neovide "neovide --fork"
+{{ end }}
 
 # 设置代理
 set -x https_proxy http://127.0.0.1:7890
