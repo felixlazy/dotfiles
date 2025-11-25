@@ -7,8 +7,8 @@ Invoke-Expression (& { (zoxide init powershell | Out-String) })
 $Env:home="C:\Users\felix"
 $Env:XDG_CONFIG_HOME=$Env:home+"\.config"
 $Env:XDG_DATA_HOME  =$Env:home+"\.local\share"
-$Env:XDG_STATE_HOME =$Env:home+"\.local\share"
-$Env:NVIM_LOG_FILE  =$Env:home+"\.local\share"
+$Env:XDG_STATE_HOME  = $Env:home + "\.local\state"
+$Env:NVIM_LOG_FILE   = $Env:XDG_STATE_HOME + "\nvim-data\nvim.log"
 $Env:_ZO_DATA_DIR   =$Env:home+"\.local\share\zoxide"
 $Env:path += ";$Env:home/.config/fzf"
 $Env:YAZI_CONFIG_HOME=$Env:home+"\.config\yazi"
@@ -32,9 +32,9 @@ $Env:https_proxy="http://127.0.0.1:7890"
 . "$Env:XDG_CONFIG_HOME\fzf\Fzf.ps1"
 . "$Env:XDG_CONFIG_HOME\pwsh\Eza.ps1"
 . "$Env:XDG_CONFIG_HOME\pwsh\Bind.ps1"
-# . "$Env:XDG_CONFIG_HOME\pwsh\Onefetch.ps1"
 . "$Env:XDG_CONFIG_HOME\pwsh\Chezmoi.ps1"
 . "$Env:XDG_CONFIG_HOME\pwsh\Env.ps1"
+. "$Env:XDG_CONFIG_HOME\procs\Procs.ps1"
 
 Import-Module PSCompletions
 fastfetch
