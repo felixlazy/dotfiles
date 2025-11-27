@@ -37,5 +37,8 @@ return {
     debug = false,
     opacity = nil,
     post_open_hook = nil,
+    references = { -- Configure the telescope UI for slowing the references cycling window.
+      provider = "snacks", -- telescope|fzf_lua|snacks|mini_pick|default
+    },
   },
 }
