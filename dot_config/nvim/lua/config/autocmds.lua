@@ -11,6 +11,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown" },
   callback = function()
     vim.opt_local.spell = false
+    vim.opt.wrap = false
   end,
 })
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
