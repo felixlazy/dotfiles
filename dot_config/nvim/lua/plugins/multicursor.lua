@@ -2,7 +2,7 @@
 return {
   {
     "jake-stewart/multicursor.nvim",
-    keys = { "<C-n>", "<C-p>" },
+    keys = { { "<C-n>", mode = { "n", "v" } }, { "<C-p>", mode = { "n", "v" } } },
     config = function()
       local mc = require("multicursor-nvim")
       mc.setup()
