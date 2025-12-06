@@ -42,4 +42,19 @@ focus: Rust, Systems Programming, Embedded, Backend
 
 ## Gemini Added Memories
 
-- The user wants me to reply in Chinese.
+- 用户希望我用中文回答.
+- 当用户引用特定代码行或文件内容时, **优先使用 `read_file` 工具**：每次都主动读取整个相关文件,
+  以获取最新、最准确的上下文信息。
+
+## Git 提交规范
+
+- **多行提交信息**: 当需要创建包含多行内容的提交信息时，**严禁将整个多行内容用一对双引号 `"` 包裹，然后直接传递给 `git commit -m`**。
+  Shell 会错误地解析换行符和特殊字符，导致提交失败或产生错误。
+  **正确做法**: 对每一行内容使用一个独立的 `-m` 参数。
+  例如:
+
+  ```bash
+    git commit -m "提交标题" -m "- 第一行提交描述" -m "- 第二行提交描述"
+  ```
+
+  这样可以确保每行提交信息都被正确解析。
