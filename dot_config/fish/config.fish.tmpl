@@ -57,6 +57,9 @@ alias ls="eza --color=auto --icons=auto --group-directories-first"
 alias la 'eza --color=auto --icons=auto --group-directories-first --all --git'
 alias ll 'eza --color=auto --icons=auto --group-directories-first --all --git --long'
 abbr b btm
+abbr rg grep
+abbr fd find
+abbr ps procs
 
 set -gx EDITOR (which nvim)
 set -gx VISUAL $EDITOR
@@ -123,7 +126,7 @@ abbr sau "systemctl --user start"
 abbr sf "systemctl --failed --all"
 # make
 #
-abbr make 'make -j$(nproc)'
+alias make 'bear -- make -j$(nproc)'
 # neovide
 alias neovide "neovide --fork"
 {{ end }}

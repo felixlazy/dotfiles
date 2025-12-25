@@ -17,6 +17,7 @@ return {
       prompts = {
         refactor = "Please refactor {this} to be more maintainable",
         security = "Review {file} for security vulnerabilities",
+        commit = "Generate commit message with commitizen convention from staged changes",
         translate = "Translate {this} ",
       },
       mux = mux,

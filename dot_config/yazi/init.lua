@@ -7,16 +7,16 @@ th.git.untracked_sign = ""
 th.git.modified_sign = ""
 th.git.deleted_sign = ""
 require("git"):setup()
-require("yamb"):setup({
-	-- Optional, recieve notification everytime you jump.
-	jump_notify = true,
-	-- Optional, the cli of fzf.
-	cli = "fzf",
-	-- Optional, a string used for randomly generating keys, where the preceding characters have higher priority.
-	keys = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
-	-- Optional, the path of bookmarks
-	path = os.getenv("HOME") .. "/.config/yazi/bookmark",
-})
+-- require("yamb"):setup({
+-- 	-- Optional, recieve notification everytime you jump.
+-- 	jump_notify = true,
+-- 	-- Optional, the cli of fzf.
+-- 	cli = "fzf",
+-- 	-- Optional, a string used for randomly generating keys, where the preceding characters have higher priority.
+-- 	keys = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+-- 	-- Optional, the path of bookmarks
+-- 	path = os.getenv("HOME") .. "/.config/yazi/bookmark",
+-- })
 require("starship"):setup()
 require("yaziline"):setup({
 	select_symbol = "",

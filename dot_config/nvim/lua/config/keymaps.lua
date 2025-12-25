@@ -15,14 +15,14 @@ map("n", "<left>", ":vertical resize+5<CR>", { noremap = true, silent = true })
 map("n", "<right>", ":vertical resize-5<CR>", { noremap = true, silent = true })
 map("t", "<esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
 
-local Util = require("utils") -- 改成你的路径
+local Util = require("utils")
 
-map("n", "<leader>ee", function()
+map("n", "<leader>of", function()
   Util.open_path(Util.get_buf_dir())
 end, { desc = "Open folder of current file" })
 
-map("n", "<leader>ed", function()
-  Util.open_path(LazyVim.root()) -- 你已有的项目根目录函数
+map("n", "<leader>orf", function()
+  Util.open_path(LazyVim.root())
 end, { desc = "Open project root folder" })
 
 map("n", "<leader>co", function()
