@@ -1,49 +1,6 @@
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
-[[mgr.prepend_keymap]]
-on = "F"
-run = "plugin smart-filter"
-desc = "Smart filter"
-[[mgr.prepend_keymap]]
-on = ["u", "a"]
-run = "plugin yamb save"
-desc = "Add bookmark"
-
-[[mgr.prepend_keymap]]
-on = ["u", "g"]
-run = "plugin yamb jump_by_key"
-desc = "Jump bookmark by key"
-
-[[mgr.prepend_keymap]]
-on = ["u", "G"]
-run = "plugin yamb jump_by_fzf"
-desc = "Jump bookmark by fzf"
-
-[[mgr.prepend_keymap]]
-on = ["u", "d"]
-run = "plugin yamb delete_by_key"
-desc = "Delete bookmark by key"
-
-[[mgr.prepend_keymap]]
-on = ["u", "D"]
-run = "plugin yamb delete_by_fzf"
-desc = "Delete bookmark by fzf"
-
-[[mgr.prepend_keymap]]
-on = ["u", "A"]
-run = "plugin yamb delete_all"
-desc = "Delete all bookmarks"
-
-[[mgr.prepend_keymap]]
-on = ["u", "r"]
-run = "plugin yamb rename_by_key"
-desc = "Rename bookmark by key"
-
-[[mgr.prepend_keymap]]
-on = ["u", "R"]
-run = "plugin yamb rename_by_fzf"
-desc = "Rename bookmark by fzf"
 
 [[mgr.prepend_keymap]]
 on = "l"
