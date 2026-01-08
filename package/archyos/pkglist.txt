@@ -1,3 +1,4 @@
+7zip
 accountsservice
 adobe-source-han-sans-cn-fonts
 adobe-source-han-sans-jp-fonts
@@ -65,6 +66,7 @@ e2fsprogs
 efibootmgr
 efitools
 egl-wayland
+emacs
 ethtool
 exfatprogs
 eza
@@ -131,6 +133,7 @@ logrotate
 lsb-release
 lsof
 lsscsi
+luarocks
 lvm2
 mako
 man-db
@@ -171,6 +174,7 @@ nvidia-settings
 nvidia-utils
 nvtop
 octopi
+onefetch
 openbsd-netcat
 opencl-nvidia
 opendesktop-fonts
@@ -223,6 +227,7 @@ sysfsutils
 tectonic
 texinfo
 tmux
+tree-sitter-cli
 ttf-bitstream-vera
 ttf-dejavu
 ttf-fantasque-nerd
