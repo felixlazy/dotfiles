@@ -1,5 +1,11 @@
 font-family = Maple Mono NF CN
+
+{{ if ne .chezmoi.os "darwin" }}
 font-size = 16
+{{else}}
+font-size = 24
+{{ end }}
+
 theme=tokyonight_moon
 custom-shader =./ghostty-shaders/cursor_blaze.glsl
 copy-on-select = clipboard

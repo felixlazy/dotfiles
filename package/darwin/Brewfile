@@ -4,6 +4,8 @@ tap "homebrew/bundle"
 tap "koekeishiya/formulae"
 tap "laishulu/homebrew"
 tap "nikitabobko/tap"
+# GNU debugger for arm-none-eabi cross development
+brew "arm-none-eabi-gdb"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Yet another cross-platform graphical process/system monitor
@@ -12,6 +14,8 @@ brew "bottom"
 brew "chezmoi"
 # Secure runtime for JavaScript and TypeScript
 brew "deno"
+# GNU Emacs text editor
+brew "emacs"
 # Modern, maintained replacement for ls
 brew "eza"
 # Like neofetch, but much faster because written mostly in C
@@ -26,7 +30,7 @@ brew "fisher"
 brew "fx"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# Platform built on V8 to build network applications
+# Open-source, cross-platform JavaScript runtime environment
 brew "node"
 # Interact with Google Gemini AI models from the command-line
 brew "gemini-cli"
@@ -40,15 +44,13 @@ brew "git-delta"
 brew "git-flow"
 # Render markdown on the CLI
 brew "glow"
-# GNU Pretty Good Privacy (PGP) package
+# GNU Privacy Guard (OpenPGP)
 brew "gnupg"
 # Manage your GnuPG keys with ease!
 brew "gpg-tui"
 # Command-line hex viewer
 brew "hexyl"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.13"
-# Tools and libraries to manipulate images in many formats
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
 # Simple terminal UI for git commands
 brew "lazygit"
@@ -64,10 +66,12 @@ brew "yt-dlp"
 brew "mpv"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# No Nonsense Neovim Client in Rust
-brew "neovide"
 # Command-line Git information tool
 brew "onefetch"
+# On-chip debugging, in-system programming and boundary-scan testing
+brew "open-ocd"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
 # Paste PNG into files
@@ -80,6 +84,10 @@ brew "ripgrep"
 brew "rust"
 # Experimental Rust compiler front-end for IDEs
 brew "rust-analyzer"
+# 7-Zip is a file archiver with a high compression ratio
+brew "sevenzip"
+# Cross-shell prompt for astronauts
+brew "starship"
 # Modernized, complete, self-contained TeX/LaTeX engine
 brew "tectonic"
 # General purpose fuzzy finder TUI
@@ -97,19 +105,32 @@ brew "zsh"
 # macOS Input Source Manager
 brew "laishulu/homebrew/macism"
 # AeroSpace is an i3-like tiling window manager for macOS
-cask "aerospace"
+cask "nikitabobko/tap/aerospace"
 # Continuation of Clash Verge - A Clash Meta GUI based on Tauri
 cask "clash-verge-rev"
 cask "font-maple-mono-nf-cn"
+cask "font-sf-mono"
+cask "font-sf-pro"
+# Pre-built GNU bare-metal toolchain for 32-bit Arm processors
+cask "gcc-arm-embedded"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Desktop client for GitHub repositories
 cask "github"
 # GPU-based terminal emulator
 cask "kitty"
+# Neovim Client
+cask "neovide-app"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Control your tools with a few keystrokes
 cask "raycast"
+# Tool that provides consistent, highly configurable symbols for apps
+cask "sf-symbols"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
+# Gecko based web browser
+cask "zen"
+cargo "cargo-expand"
+cargo "cargo-nextest"
+cargo "cmd-wrapped"
