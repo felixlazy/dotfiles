@@ -57,8 +57,6 @@ alias ls="eza --color=auto --icons=auto --group-directories-first"
 alias la 'eza --color=auto --icons=auto --group-directories-first --all --git'
 alias ll 'eza --color=auto --icons=auto --group-directories-first --all --git --long'
 abbr b btm
-abbr rg grep
-abbr fd find
 abbr ps procs
 
 set -gx EDITOR (which nvim)
@@ -142,5 +140,11 @@ set -x EDITOR nvim
 set -x LANG en_US.UTF-8
 set -x BAT_CONFIG_PATH "$HOME/.config/bat/config"
 set -x BAT_CONFIG_DIR "$HOME/.config/bat"
+set -x ZEPHYR_BASE "$HOME/PARA/project/zephyr/zephyr"
+
+# 注册 west 官方补全
+if command -v west >/dev/null
+    west completion fish | source
+end
 
 fastfetch
