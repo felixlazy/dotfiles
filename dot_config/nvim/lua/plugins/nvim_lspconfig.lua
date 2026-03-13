@@ -161,6 +161,34 @@ return {
       },
     })
 
+    if not require("lspconfig.configs").kconfig then
+      configs.kconfig = {
+        default_config = {
+          cmd = { "kconfig-lsp" },
+          filetypes = { "kconfig" },
+          root_dir = zephyr_base,
+          settings = {
+            kconfig = {
+              zephyrBase = zephyr_base,
+            },
+          },
+          capabilities = capabilities,
+        },
+      }
+    end
+
+    lspconfig.kconfig.setup({
+      capabilities = capabilities, -- 建议传入你定义的 capabilities
+      handlers = {
+        ["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
+          -- 如果文件路径以 .conf 结尾，直接清空诊断信息（错误列表）
+          if result.uri:match("%.conf$") then
+            result.diagnostics = {}
+          end
+          vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx, config)
+        end,
+      },
+    })
     return opts
   end,
 }
