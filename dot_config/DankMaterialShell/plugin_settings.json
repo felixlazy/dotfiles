@@ -5,10 +5,10 @@
   "optimusPlugin": {
     "enabled": true
   },
-  "niriWindows": {
+  "dankBatteryAlerts": {
     "enabled": true
   },
-  "dankPomodoroTimer": {
+  "powerUsagePlugin": {
     "enabled": true
   }
 }
