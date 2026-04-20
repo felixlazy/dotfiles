@@ -1,10 +1,14 @@
 vim.filetype.add({
-  extension = {
-    conf = "kconfig",
-  },
+  -- 只有当文件名明确为 Kconfig 时才关联
   filename = {
-    ["*.conf"] = "kconfig",
+    ["Kconfig"] = "kconfig",
     [".config"] = "kconfig",
+  },
+  -- 只有在特定的路径模式下才将 .conf 视为 kconfig
+  -- 或者你可以保持手动设置
+  pattern = {
+    ["prj.*%.conf"] = "kconfig",
+    [".*/zephyr/.*%.conf"] = "kconfig",
   },
 })
 return {

@@ -59,6 +59,16 @@ alias ll 'eza --color=auto --icons=auto --group-directories-first --all --git --
 abbr b btm
 abbr ps procs
 
+# zephyr 
+abbr wb 'west build'
+abbr wba 'west build -p always'
+abbr wbac 'west build -p always -- -DCONF_FILE'
+abbr wbc 'west build -- -DCONF_FILE'
+abbr wbar 'west build -p always . -- -DCONF_FILE="prj.conf;release.conf"'
+abbr wbr 'west build  . -- -DCONF_FILE="prj.conf;release.conf"'
+abbr wsim 'west build -p always -b native_sim -- -DDTC_OVERLAY_FILE= ""'
+abbr zinit 'source $ZEPHYR_BASE/../.venv/bin/activate.fish'
+
 set -gx EDITOR (which nvim)
 set -gx VISUAL $EDITOR
 set -gx SUDO_EDITOR $EDITOR
