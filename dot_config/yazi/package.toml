@@ -1,22 +1,7 @@
 [[plugin.deps]]
-use = "yazi-rs/plugins:git"
-rev = "03cdd4b"
-hash = "36a484acf6a0a0219c543ccb4cee218f"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
 rev = "03cdd4b"
 hash = "56fdabc96fc1f4d53c96eb884b02a5be"
-
-[[plugin.deps]]
-use = "llanosrocas/yaziline"
-rev = "6266926"
-hash = "9917ab5cb9bdbab7ca7f2501f84f0f11"
-
-[[plugin.deps]]
-use = "Rolv-Apneseth/starship"
-rev = "eca1861"
-hash = "e519d894e94ded741e06aae4d4775981"
 
 [[plugin.deps]]
 use = "MasouShizuka/projects"
@@ -33,3 +18,20 @@ use = "yazi-rs/plugins:piper"
 rev = "03cdd4b"
 hash = "2dd68af59418b631b9703a03f606b31f"
 
+[[plugin.deps]]
+use = "imsi32/yatline"
+rev = "c5d4b48"
+hash = "e6e98d12b1648d1894c2b560d85eeaa7"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "03cdd4b"
+hash = "36a484acf6a0a0219c543ccb4cee218f"
+
+[[plugin.deps]]
+use = "XYenon/yafg"
+rev = "e6ba851"
+hash = "9558dd9169cbf01eac6044583c426716"
+
+[flavor]
+deps = []

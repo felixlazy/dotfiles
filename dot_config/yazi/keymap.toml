@@ -1,6 +1,5 @@
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
 [[mgr.prepend_keymap]]
 on = "l"
@@ -46,3 +45,7 @@ desc = "Merge current project to other projects"
 on = ["g", "i"]
 run = "plugin lazygit"
 desc = "run lazygit"
+
+[[mgr.prepend_keymap]]
+on = ["F", "G"]
+run = "plugin yafg"
