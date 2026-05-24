@@ -62,6 +62,12 @@ spawn-at-startup "journalctl-desktop-notification"
 spawn-at-startup "easyeffects" "--gapplication-service"
 spawn-at-startup "xhost si:localuser:root"
 
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "font-name" "Maple Mono NF CN 11"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "document-font-name" "Maple Mono NF CN 11"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "monospace-font-name" "Maple Mono NF CN 11"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "font-antialiasing" "rgba"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "font-hinting" "slight"
+
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "Arc"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "icon-theme" "Adwaita"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "Adwaita"
