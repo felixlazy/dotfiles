@@ -54,7 +54,6 @@ gestures {
 
 spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
 spawn-at-startup "/usr/bin/fcitx5"
-spawn-at-startup "/usr/bin/clash-verge"
 spawn-at-startup "dms" "run"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 // spawn-at-startup "wl-clip-persist" "--clipboard" "regular"
@@ -170,14 +169,23 @@ window-rule{
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#environment
 
 environment {
-    DISPLAY ":1"
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
-    QT_QPA_PLATFORM "wayland"
-    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-    QT_QPA_PLATFORMTHEME "gtk3"
-    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
-    XDG_SESSION_TYPE "wayland"
-    XDG_CURRENT_DESKTOP "niri"
+  CLUTTER_BACKEND "wayland"
+  GDK_BACKEND "wayland,x11,*"
+  GDK_DPI_SCALE "1"
+  GDK_SCALE "1"
+  QT_AUTO_SCREEN_SCALE_FACTOR "1"
+  QT_QPA_PLATFORM "wayland;xcb"
+  QT_QPA_PLATFORMTHEME "gtk3"
+  QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+  SDL_VIDEODRIVER "wayland"
+  GSK_RENDERER "ngl"
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
+  WLR_NO_HARDWARE_CURSORS "1"
+  DMS_DISABLE_MATUGEN "1"
+  // Force vaapi backend to prevent using the dGPU
+  QT_MEDIA_BACKEND "ffmpeg"
+  QT_FFMPEG_DECODING_HW_DEVICE_TYPES "vaapi"
+  QT_FFMPEG_ENCODING_HW_DEVICE_TYPES "vaapi"
 }
 
 hotkey-overlay {
