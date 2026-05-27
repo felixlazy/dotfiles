@@ -1,0 +1,26 @@
+# hash: {{ $path := joinPath .chezmoi.homeDir ".config/mihomo/Country.mmdb.new" }}{{ if (stat $path) }}{{ include $path | sha256sum }}{{ end }}
+# 这个脚本仅在 Windows 上运行，用于在下载完 Country.mmdb.new 后，
+# 停止 mihomo 进程，替换文件并重启服务。
+
+$Target = "$HOME\.config\mihomo\Country.mmdb"
+$Source = "$HOME\.config\mihomo\Country.mmdb.new"
+
+if (Test-Path $Source) {
+    Write-Host "检测到新的 Country.mmdb，正在执行替换并重启 Mihomo..."
+    
+    # 1. 停止进程（此时文件已在本地，不再需要网络代理下载）
+    Get-Process mihomo -ErrorAction SilentlyContinue | Stop-Process -Force
+    Start-Sleep -Seconds 1 # 等待系统完全释放文件句柄
+    
+    # 2. 替换文件
+    Move-Item -Path $Source -Destination $Target -Force
+    
+    # 3. 重新启动任务计划
+    $TaskName = "Mihomo-Daemon"
+    if (Get-ScheduledTask -TaskName $TaskName -ErrorAction SilentlyContinue) {
+        Start-ScheduledTask -TaskName $TaskName
+        Write-Host "Mihomo 已更新并重新启动。"
+    } else {
+        Write-Warning "未找到任务计划 '$TaskName'，请确认已运行初始化脚本。"
+    }
+}

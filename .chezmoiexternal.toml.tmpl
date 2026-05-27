@@ -14,7 +14,11 @@
     stripComponents = 1
     refreshPeriod = "168h"
 
+{{ if eq .chezmoi.os "windows" }}
+[".config/mihomo/Country.mmdb.new"]
+{{ else }}
 [".config/mihomo/Country.mmdb"]
+{{ end }}
       type = "file"
       url = "https://github.com/Loyalsoldier/geoip/releases/latest/download/Country.mmdb"
       refreshPeriod = "168h"
