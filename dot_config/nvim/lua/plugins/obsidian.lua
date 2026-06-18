@@ -1,99 +1,92 @@
-if true then
-  return {}
-end
 return {
   {
     "obsidian-nvim/obsidian.nvim",
-    version = "*", -- Use the latest release instead of the latest commit (recommended)
     ft = "markdown",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      {
+        "neovim/nvim-lspconfig",
+        opts = function(_, opts)
+          opts.servers.marksman = {
+            on_attach = function(client, bufnr)
+              local active_clients = vim.lsp.get_clients({ bufnr = bufnr })
+              for _, other_client in ipairs(active_clients) do
+                if other_client.name == "obsidian-ls" then
+                  client.server_capabilities.definitionProvider = false
+                  client.server_capabilities.referencesProvider = false
+                  client.server_capabilities.renameProvider = false
+                  client.server_capabilities.completionProvider = false
+                  break
+                end
+              end
+            end,
+          }
+        end,
+      },
     },
     cmd = {
-      "ObsidianBacklinks",
-      "ObsidianCheck",
-      "ObsidianDailies",
-      "ObsidianDebug",
-      "ObsidianExtractNote",
-      "ObsidianFollowLink",
-      "ObsidianLink",
-      "ObsidianLinkNew",
-      "ObsidianLinks",
-      "ObsidianNew",
-      "ObsidianNewFromTemplate",
-      "ObsidianOpen",
-      "ObsidianPasteImg",
-      "ObsidianQuickSwitch",
-      "ObsidianRename",
-      "ObsidianSearch",
-      "ObsidianTOC",
-      "ObsidianTags",
-      "ObsidianTemplate",
-      "ObsidianToday",
-      "ObsidianToggleCheckbox",
-      "ObsidianTomorrow",
-      "ObsidianWorkspace",
-      "ObsidianYesterday",
+      "Obsidian",
     },
     keys = {
       {
         "<leader>obf",
-        "<cmd>ObsidianQuickSwitch<CR>",
+        "<cmd>Obsidian quick_switch<CR>",
         desc = "ObsidianQuickSwitch",
       },
       {
         "<leader>obg",
-        "<cmd>ObsidianSearch<CR>",
+        "<cmd>Obsidian search<CR>",
         desc = "ObsidianSearch",
       },
       {
         "<leader>obn",
-        "<cmd>ObsidianNew<CR>",
+        "<cmd>Obsidian new<CR>",
         desc = "ObsidianNew",
       },
       {
         "<leader>obc",
-        "<cmd>ObsidianToggleCheckbox<CR>",
+        "<cmd>Obsidian toggle_checkbox<CR>",
         desc = "ObsidianToggleCheckbox",
       },
       {
         "<leader>obt",
-        "<cmd>ObsidianTags<CR>",
+        "<cmd>Obsidian tags<CR>",
         desc = "ObsidianTags",
       },
       {
         "<leader>obw",
-        "<cmd>ObsidianWorkspace<CR>",
+        "<cmd>Obsidian workspace<CR>",
         desc = "ObsidianWorkspace",
       },
       {
         "<leader>obp",
-        "<cmd>ObsidianPasteImg<CR>",
+        "<cmd>Obsidian pasteimg<CR>",
         desc = "ObsidianPasteImg",
       },
       {
         "<leader>obl",
-        "<cmd>ObsidianLinks<CR>",
+        "<cmd>Obsidian links<CR>",
         desc = "ObsidianLinks",
       },
       {
         "<leader>obb",
-        "<cmd>ObsidianBacklinks<CR>",
+        "<cmd>Obsidian backlinks<CR>",
         desc = "ObsidianBacklinks",
       },
       {
         "<leader>obo",
-        "<cmd>ObsidianOpen<CR>",
+        "<cmd>Obsidian open<CR>",
         desc = "ObsidianOpen",
       },
       {
         "<leader>obm",
-        "<cmd>ObsidianTemplate<CR>",
+        "<cmd>Obsidian template<CR>",
         desc = "ObsidianTemplate",
       },
     },
 
     opts = {
+      legacy_commands = false,
       -- Define workspaces for Obsidian
       workspaces = {
         {
@@ -102,16 +95,11 @@ return {
         },
       },
 
-      -- Completion settings
-      completion = {
-        nvim_cmp = false, -- Disable completion using nvim-cmp
-        blink = true,
-      },
       notes_subdir = "area/notes", -- Subdirectory for notes
       new_notes_location = "area/notes", -- Location for new notes
       -- Settings for attachments
       attachments = {
-        img_folder = "./image", -- Folder for image attachments
+        folder = "./image", -- Folder for image attachments
         img_text_func = function(client, path)
           path = client:vault_relative_path(path) or path
           return string.format("![%s](/%s)", path.name, path)
@@ -141,19 +129,21 @@ return {
         folder = "resource/templates",
       },
       -- Function to generate frontmatter for notes
-      note_frontmatter_func = function(note)
-        -- This is equivalent to the default frontmatter function.
-        local out = { id = note.id, aliases = note.aliases, tags = note.tags }
+      frontmatter = {
+        func = function(note)
+          -- This is equivalent to the default frontmatter function.
+          local out = { id = note.id, aliases = note.aliases, tags = note.tags }
 
-        -- `note.metadata` contains any manually added fields in the frontmatter.
-        -- So here we just make sure those fields are kept in the frontmatter.
-        if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
-          for k, v in pairs(note.metadata) do
-            out[k] = v
+          -- `note.metadata` contains any manually added fields in the frontmatter.
+          -- So here we just make sure those fields are kept in the frontmatter.
+          if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+            for k, v in pairs(note.metadata) do
+              out[k] = v
+            end
           end
-        end
-        return out
-      end,
+          return out
+        end,
+      },
 
       -- Function to generate note IDs
       note_id_func = function(title)
@@ -171,18 +161,6 @@ return {
           end
         end
         return suffix
-      end,
-      follow_url_func = function(url)
-        print(url)
-        vim.ui.open(url) -- need Neovim 0.10.0+
-      end,
-      follow_img_func = function(img)
-        if os.getenv("SHELL") ~= "/bin/zsh" then
-          print(img)
-          vim.cmd("wezterm imgcat" .. img .. '"') -- Windows
-        else
-          vim.fn.jobstart({ "qlmanage", "-p", img }) -- Mac OS quick look preview
-        end
       end,
     },
   },
