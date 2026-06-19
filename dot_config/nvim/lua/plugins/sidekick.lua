@@ -25,9 +25,10 @@ return {
         gemini = {
           cmd = { "gemini" },
           env = {
-            https_proxy = "http://127.0.0.1:7890",
-            http_proxy = "http://127.0.0.1:7890",
-            all_proxy = "socks5://127.0.0.1:7890",
+            https_proxy = os.getenv("https_proxy"),
+            http_proxy = os.getenv("http_proxy"),
+            all_proxy = os.getenv("all_proxy"),
+            GEMINI_API_KEY = os.getenv("GEMINI_API_KEY"),
           },
         },
       },
