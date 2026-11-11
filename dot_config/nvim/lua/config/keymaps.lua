@@ -14,7 +14,11 @@ map("n", "<down>", ":res +5<CR>", { noremap = true, silent = true })
 map("n", "<left>", ":vertical resize+5<CR>", { noremap = true, silent = true })
 map("n", "<right>", ":vertical resize-5<CR>", { noremap = true, silent = true })
 map("t", "<esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
-
+-- 映射一个不冲突的按键（如 <Esc> 或 <leader>mc）来彻底清除所有多光标
+vim.keymap.set("n", "<leader>mc", function()
+  local mc_ns = vim.api.nvim_create_namespace("nvim.multicursor")
+  vim.api.nvim_buf_clear_namespace(0, mc_ns, 0, -1)
+end, { desc = "Clear all multicursors" })
 local Util = require("utils")
 
 map("n", "<leader>of", function()

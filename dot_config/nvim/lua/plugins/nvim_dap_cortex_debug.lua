@@ -1,17 +1,6 @@
 return {
   cond = false,
   "jedrzejboczar/nvim-dap-cortex-debug",
-
-  dependencies = {
-    {
-      "rcarriga/nvim-dap-ui",
-      opts = {
-        variables = {
-          value_format = "%d:%x", -- 十进制和十六进制格式
-        },
-      },
-    },
-  },
   opts = {
     debug = false, -- log debug messages
     -- path to cortex-debug extension, supports vim.fn.glob

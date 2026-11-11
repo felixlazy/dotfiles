@@ -78,4 +78,54 @@ return {
       return opts
     end,
   },
+  {
+    "saghen/blink.pairs",
+    dependencies = { "saghen/blink.lib" },
+
+    version = "*",
+    build = function()
+      ---@diagnostic disable-next-line: undefined-field
+      require("blink.pairs").build():pwait(60000)
+    end,
+
+    opts = {
+      mappings = {
+        enabled = true,
+        cmdline = true,
+        disabled_filetypes = {},
+        wrap = {
+          -- move closing pair via motion
+          ["<C-b>"] = "motion",
+          -- move opening pair via motion
+          ["<C-S-b>"] = "motion_reverse",
+        },
+        pairs = {},
+      },
+      highlights = {
+        enabled = true,
+        cmdline = true,
+        groups = {
+          "BlinkPairsOrange",
+          "BlinkPairsYellow",
+          "BlinkPairsGreen",
+          "BlinkPairsCyan",
+          "BlinkPairsBlue",
+          "BlinkPairsPurple",
+        },
+        unmatched_group = "BlinkPairsUnmatched",
+        matchparen = {
+          enabled = true,
+          cmdline = false,
+          include_surrounding = false,
+          group = "BlinkPairsMatchParen",
+          priority = 250,
+        },
+      },
+      debug = false,
+    },
+  },
+  {
+    "nvim-mini/mini.pairs",
+    enabled = false,
+  },
 }

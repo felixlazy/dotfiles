@@ -31,6 +31,25 @@ return {
             GEMINI_API_KEY = os.getenv("GEMINI_API_KEY"),
           },
         },
+        antigravity = {
+          cmd = { "agy" },
+          env = {
+            https_proxy = os.getenv("https_proxy"),
+            http_proxy = os.getenv("http_proxy"),
+            all_proxy = os.getenv("all_proxy"),
+            GEMINI_API_KEY = os.getenv("GEMINI_API_KEY"),
+          },
+        },
+        zaly = {
+          cmd = { "zaly" },
+          env = {
+            https_proxy = os.getenv("https_proxy"),
+            http_proxy = os.getenv("http_proxy"),
+            all_proxy = os.getenv("all_proxy"),
+            DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY"),
+            GEMINI_API_KEY = os.getenv("GEMINI_API_KEY"),
+          },
+        },
       },
     }
     return opts

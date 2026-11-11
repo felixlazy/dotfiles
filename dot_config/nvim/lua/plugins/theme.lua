@@ -25,6 +25,17 @@ return {
             highlights["@org.priority.default"] = { italic = true, fg = "#41a6b5" }
             highlights["@org.priority.low"] = { italic = true, fg = "#c099ff" }
             highlights["@org.priority.lowest"] = { italic = true, fg = "#c099ff" }
+
+            -- blink.pairs highlight groups for tokyonight
+            highlights.BlinkPairsRed = { fg = colors.red }
+            highlights.BlinkPairsYellow = { fg = colors.yellow }
+            highlights.BlinkPairsBlue = { fg = colors.blue }
+            highlights.BlinkPairsOrange = { fg = colors.orange }
+            highlights.BlinkPairsGreen = { fg = colors.green }
+            highlights.BlinkPairsPurple = { fg = colors.magenta }
+            highlights.BlinkPairsCyan = { fg = colors.cyan }
+            highlights.BlinkPairsUnmatched = { fg = colors.red }
+            highlights.BlinkPairsMatchParen = { link = "MatchParen" }
           end,
         })
       else

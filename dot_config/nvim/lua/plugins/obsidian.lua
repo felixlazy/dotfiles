@@ -95,8 +95,6 @@ return {
         },
       },
 
-      notes_subdir = "area/notes", -- Subdirectory for notes
-      new_notes_location = "area/notes", -- Location for new notes
       -- Settings for attachments
       attachments = {
         folder = "./image", -- Folder for image attachments
@@ -123,7 +121,7 @@ return {
       },
       picker = {
         -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
-        name = "snacks.pick",
+        name = "snacks.picker",
       },
       templates = {
         folder = "resource/templates",
